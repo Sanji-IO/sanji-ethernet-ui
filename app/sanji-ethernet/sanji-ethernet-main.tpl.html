@@ -1,0 +1,11 @@
+<script type ="text/ng-template" id="sanji-ethernet-main.tpl.html">
+  <div ng-controller="EthernetController as vm"
+    ng-switch="sanjiWindowMgr.getWindowStatus()">
+    <div ng-class="sanjiWindowMgr.animateClass" ng-switch-when="sanji-info">
+      <div ng-include="'sanji-ethernet-info.tpl.html'"></div>
+    </div>
+    <div ng-class="sanjiWindowMgr.animateClass" ng-switch-when="sanji-edit">
+      <div ng-include="'sanji-ethernet-edit.tpl.html'"></div>
+    </div>
+  </div>
+</script>
