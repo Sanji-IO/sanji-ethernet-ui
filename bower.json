@@ -6,7 +6,7 @@
     "zackyang <zackcf.yang@moxa.com>"
   ],
   "description": "Sanji ethernet config UI",
-  "main": "dist/sanji-ethernet-ui.min.js",
+  "main": "dist/sanji-ethernet-ui.js",
   "keywords": [
     "sanji"
   ],

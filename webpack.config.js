@@ -2,7 +2,6 @@
 
 var path = require('path');
 var webpack = require('webpack');
-var bourbon = require('node-bourbon').includePaths;
 var NODE_ENV = process.env.NODE_ENV;
 var bowerRoot = path.join(__dirname, 'bower_components');
 var nodeRoot = path.join(__dirname, 'node_modules');
