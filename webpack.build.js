@@ -10,7 +10,7 @@ config.devtool = 'source-map';
 config.entry = {
   'sanji-bundle-ui': './sanji-ethernet/index.js'
 };
-config.output.filename = 'sanji-ethernet.min.js';
+config.output.filename = 'sanji-ethernet.js';
 config.output.libraryTarget = 'umd';
 
 config.module.loaders = [
@@ -21,13 +21,8 @@ config.module.loaders = [
 ].concat(config.module.loaders);
 
 config.plugins.push(
-  new ExtractTextPlugin('sanji-ethernet.min.css'),
+  new ExtractTextPlugin('sanji-ethernet.css'),
   new WebpackNotifierPlugin({title: 'Webpack'}),
-  new webpack.optimize.DedupePlugin(),
-  new webpack.optimize.UglifyJsPlugin({
-    compress: {
-      warnings: false
-    }
-  })
+  new webpack.optimize.DedupePlugin()
 );
 module.exports = config;
