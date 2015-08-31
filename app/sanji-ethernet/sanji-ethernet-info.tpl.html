@@ -1,19 +1,26 @@
 <script type ="text/ng-template" id="sanji-ethernet-info.tpl.html">
   <div class="col-sm-3 text-right pull-right clearfix">
-    <button type="button" class="btn btn-primary" ng-click="sanjiWindowMgr.goToEditState()">
+    <button type="button"
+      class="mx-btn mx-btn-default"
+      ng-click="vm.reload()">
+      <i class="fa fa-refresh"></i>
+    </button>
+    <button type="button"
+      class="btn btn-primary"
+      ng-click="vm.sanjiWindowMgr.goToEditState()">
       <i class="fa fa-edit"></i>
       <span>Edit</span>
     </button>
   </div>
-  <div class="row">
+  <div class="row" ng-repeat="ethernet in vm.ethernets track by $index">
     <div class="col-sm-6 col-sm-offset-3">
       <dl class="dl-horizontal">
         <dt>IP:</dt>
-        <dd ng-bind="::vm.ethernet.ip"></dd>
+        <dd ng-bind="::ethernet.ip"></dd>
         <dt>Netmask:</dt>
-        <dd ng-bind="::vm.ethernet.netmask"></dd>
+        <dd ng-bind="::ethernet.netmask"></dd>
         <dt>Gateway:</dt>
-        <dd ng-bind="::vm.ethernet.gateway"></dd>
+        <dd ng-bind="::ethernet.gateway"></dd>
       </dl>
     </div>
   </div>

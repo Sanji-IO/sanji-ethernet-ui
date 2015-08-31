@@ -6,10 +6,15 @@ class EthernetDirective {
       EthernetDirective[item] = injects[index];
       injectMap.set(EthernetDirective[item], injects[index]);
     });
-    this.template = `<sanji-window title="Ethernet"
-                      content-url="sanji-ethernet-main.tpl.html">
-                      </sanji-window>`;
+    this.templateUrl = 'sanji-ethernet-main.tpl.html'
     this.restrict = 'EA';
+    this.controller = 'EthernetController';
+    this.controllerAs = 'vm';
+    this.bindToController = true;
+    this.scope = {
+      ethernets: '=data',
+      sanjiWindowMgr: '='
+    }
   }
 
   static directiveFactory(...injects) {
