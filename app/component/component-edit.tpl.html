@@ -1,0 +1,47 @@
+<script type ="text/ng-template" id="sanji-ethernet-edit.tpl.html">
+  <div ng-repeat="ethernet in vm.ethernets track by $index">
+    <form class="form-horizontal"
+      role="form"
+      name="form"
+      ng-submit=""
+      layout="column"
+      layout-padding
+      novalidate>
+
+      <md-content>
+        <md-input-container>
+          <label>IP</label>
+          <input ng-model="vm.ethernet.ip">
+        </md-input-container>
+        <md-input-container>
+          <label>Netmask</label>
+          <input ng-model="vm.ethernet.netmask">
+        </md-input-container>
+        <md-input-container>
+          <label>Gateway</label>
+          <input ng-model="vm.ethernet.gateway">
+        </md-input-container>
+        <div layout="row" layout-align="end start">
+          <md-fab-speed-dial md-open="vm.isOpen" md-direction="left" class="md-scale">
+            <md-fab-trigger>
+              <md-button aria-label="ethernet menu" class="md-fab md-acent">
+                <md-icon md-svg-src="webapp:menu"></md-icon>
+              </md-button>
+            </md-fab-trigger>
+            <md-fab-actions>
+              <md-button aria-label="save" class="md-fab md-raised md-mini md-primary">
+                <md-icon md-svg-src="webapp:save"></md-icon>
+              </md-button>
+              <md-button aria-label="go back"
+                class="md-fab md-raised md-mini"
+                ng-click="sanjiWindowMgr.goToInfoState()">
+                <md-icon md-svg-src="webapp:backward"></md-icon>
+              </md-button>
+            </md-fab-actions>
+          </md-fab-speed-dial>
+        </div>
+      </md-content>
+
+    </form>
+  </div>
+</script>

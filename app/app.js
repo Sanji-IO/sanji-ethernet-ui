@@ -1,7 +1,8 @@
-import 'bootstrap';
-import 'angular-sanji-window.css';
+import 'angular-material.css';
+import './app.scss';
+import 'lodash';
 import 'angular';
 import 'angular-sanji-window';
-import './sanji-ethernet';
+import './component';
 
 angular.module('webapp', ['sanji.ethernet']);
