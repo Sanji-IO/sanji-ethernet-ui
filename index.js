@@ -1,6 +1,4 @@
-require('angular');
-require('angular-sanji-window');
-require('./dist/sanji-ethernet.css');
-require('./dist/sanji-ethernet.js');
+import 'angular';
+import component from './app/component';
 
-module.exports = 'sanji.ethernet';
+export default component
