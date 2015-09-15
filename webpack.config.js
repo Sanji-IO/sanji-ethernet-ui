@@ -16,7 +16,8 @@ var config = {
     // npm-linked packages can locate missing dependencies in app's node_modules
     fallback: nodeRoot,
     alias: {
-      'angular-material.css': nodeRoot + '/angular-material/angular-material.css'
+      'angular-material.css': nodeRoot + '/angular-material/angular-material.css',
+      'toastr.scss': nodeRoot + '/toastr/toastr.scss'
     },
     extensions: ['', '.js', '.json', 'html', 'scss', 'css']
   },
@@ -29,7 +30,14 @@ var config = {
       {
         test: /\.js$/,
         loader: 'babel?optional[]=runtime&stage=0',
-        include: /(angular-sanji-window)/
+        include: [
+          /(angular-sanji-window)/,
+          /(sanji-core-ui)/,
+          /(sanji-utils-ui)/,
+          /(sanji-logger-ui)/,
+          /(sanji-exception-ui)/,
+          /(sanji-socket-ui)/
+        ]
       },
       {
         test: /\.html$/,
