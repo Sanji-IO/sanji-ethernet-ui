@@ -2,22 +2,22 @@
   <div class="ethernet-info">
     <md-menu md-position-mode="target-right target">
       <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
-        <md-icon md-menu-origin md-svg-icon="webapp:more-vert"></md-icon>
+        <ng-md-icon md-menu-origin icon="apps" ng-attr-style="fill: #5e5e5e"></ng-md-icon>
       </md-button>
-      <md-menu-content width="2">
+      <md-menu-content width="4">
         <md-menu-item>
           <md-button>
             <div layout="row">
-              <md-icon md-menu-origin md-svg-icon="webapp:refresh"></md-icon>
               <p flex>Refresh</p>
+              <ng-md-icon md-menu-origin icon="refresh" ng-attr-style="fill: #5e5e5e"></ng-md-icon>
             </div>
           </md-button>
         </md-menu-item>
         <md-menu-item>
-          <md-button ng-click="sanjiWindowMgr.goToEditState()">
+          <md-button ng-click="vm.sanjiWindowMgr.goToEditState()">
             <div layout="row">
-              <md-icon md-menu-origin md-svg-icon="webapp:settings"></md-icon>
               <p flex>Setting</p>
+              <ng-md-icon md-menu-origin icon="settings" ng-attr-style="fill: #5e5e5e"></ng-md-icon>
             </div>
           </md-button>
         </md-menu-item>

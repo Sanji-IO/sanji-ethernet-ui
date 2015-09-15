@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import sjWindow from 'angular-sanji-window';
 import sjCore from 'sanji-core-ui';
 
 import './component-main.tpl.html';
@@ -12,7 +11,7 @@ import EthernetController from './component.controller';
 import EthernetContainerDirective from './component-container.directive';
 import EthernetDirective from './component.directive';
 
-let app = angular.module('sanji.ethernet', [sjCore, sjWindow]);
+let app = angular.module('sanji.ethernet', [sjCore]);
 app.constant('_', _);
 app.service('ethernetService', EthernetService);
 app.controller('EthernetContainerController', EthernetContainerController);
