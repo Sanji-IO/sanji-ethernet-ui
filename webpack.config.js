@@ -34,15 +34,16 @@ var config = {
         loader: 'babel?optional[]=runtime&stage=0',
         include: [
           /(angular-sanji-window)/,
-          /(sanji-logger-ui)/,
-          /(sanji-exception-ui)/,
-          /(sanji-rest-ui)/
+          /(sanji-core-ui)/
         ]
       },
       {
         test: /\.html$/,
         loader: 'ng-cache?prefix=[dir]/[dir]',
-        include: /(angular-sanji-window)/
+        include: [
+          /(angular-sanji-window)/,
+          /(sanji-core-ui)/
+        ]
       },
       {test: /\.html$/, loader: 'ng-cache?prefix=[dir]/[dir]', exclude: /(node_modules)/}
     ],

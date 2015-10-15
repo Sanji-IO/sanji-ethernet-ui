@@ -24,7 +24,7 @@ class EthernetService {
   }
 
   get() {
-    return this.rest.get('http://private-d8e84-sanjigeneric.apiary-mock.com/network/ethernets')
+    return this.rest.get('/network/ethernets')
     .then(res => {
       this.collection = this._transform(res.data);
     })
