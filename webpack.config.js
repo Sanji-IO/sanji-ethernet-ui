@@ -34,11 +34,9 @@ var config = {
         loader: 'babel?optional[]=runtime&stage=0',
         include: [
           /(angular-sanji-window)/,
-          /(sanji-core-ui)/,
-          /(sanji-utils-ui)/,
           /(sanji-logger-ui)/,
           /(sanji-exception-ui)/,
-          /(sanji-socket-ui)/
+          /(sanji-rest-ui)/
         ]
       },
       {

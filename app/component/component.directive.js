@@ -1,20 +1,19 @@
 const injectMap = new WeakMap();
-const $inject = ['$log'];
+const $inject = [];
 class EthernetDirective {
   constructor(injects) {
     EthernetDirective.directiveFactory.$inject.forEach((item, index) => {
       EthernetDirective[item] = injects[index];
       injectMap.set(EthernetDirective[item], injects[index]);
     });
-    this.templateUrl = 'sanji-ethernet-main.tpl.html'
+    this.templateUrl = 'sanji-ethernet-edit.tpl.html'
     this.restrict = 'EA';
     this.controller = 'EthernetController';
     this.controllerAs = 'vm';
     this.bindToController = true;
     this.scope = {
-      ethernets: '=data',
-      sanjiWindowMgr: '='
-    }
+      tabs: '='
+    };
   }
 
   static directiveFactory(...injects) {

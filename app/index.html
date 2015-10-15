@@ -27,8 +27,18 @@
 
     <div layout="row" layout-padding layout-align="center center">
       <div flex="33">
-        <sanji-window title="Ethernet">
-          <sanji-ethernet-container sanji-window-mgr="sanjiWindowMgr"></sanji-ethernet-container>
+        <sanji-window window-id="ethernet" window-name="Ethernet">
+
+          <sanji-window-state state-name="sanji-loading" default-state>
+            <div layout="row" layout-sm="column" layout-align="space-around">
+              <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+            </div>
+          </sanji-window-state>
+
+          <sanji-window-state state-name="sanji-edit" link-name="Settings" icon="settings">
+            <sanji-ethernet-container></sanji-ethernet-container>
+          </sanji-window-state>
+
         </sanji-window>
       </div>
     </div>

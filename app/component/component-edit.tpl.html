@@ -2,46 +2,13 @@
   <md-content>
     <md-tabs md-dynamic-height md-border-bottom>
       <md-tab ng-repeat="tab in vm.tabs track by $index" label="{{::tab.title}}">
-        <form class="form-horizontal"
-          role="form"
-          name="form"
-          ng-submit=""
-          layout="column"
-          layout-padding
-          novalidate>
+        <form role="form" layout="column" layout-padding novalidate>
 
           <md-content>
-            <md-input-container>
-              <label>IP</label>
-              <input ng-model="tab.content.ip">
-            </md-input-container>
-            <md-input-container>
-              <label>Netmask</label>
-              <input ng-model="tab.content.netmask">
-            </md-input-container>
-            <md-input-container>
-              <label>Gateway</label>
-              <input ng-model="tab.content.gateway">
-            </md-input-container>
-            <div layout="row" layout-align="end start">
-              <md-fab-speed-dial md-open="vm.isOpen" md-direction="left" class="md-scale">
-                <md-fab-trigger>
-                  <md-button aria-label="ethernet menu" class="md-fab md-acent">
-                    <ng-md-icon icon="menu" ng-attr-style="fill: white"></ng-md-icon>
-                  </md-button>
-                </md-fab-trigger>
-                <md-fab-actions>
-                  <md-button aria-label="save" class="md-fab md-raised md-mini md-primary">
-                    <ng-md-icon icon="save" ng-attr-style="fill: white"></ng-md-icon>
-                  </md-button>
-                  <md-button aria-label="go back"
-                    class="md-fab md-raised md-mini"
-                    ng-click="vm.sanjiWindowMgr.goToInfoState()">
-                    <ng-md-icon icon="keyboard_backspace" ng-attr-style="fill: #5e5e5e"></ng-md-icon>
-                  </md-button>
-                </md-fab-actions>
-              </md-fab-speed-dial>
-            </div>
+            <formly-form model="tab.content" fields="tab.fields" form="tab.form">
+              <md-button type="submit" class="md-raised md-primary"
+              ng-disabled="tab.form.$invalid">Save</md-button>
+            </formly-form>
           </md-content>
 
         </form>
