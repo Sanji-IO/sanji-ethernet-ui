@@ -15,7 +15,49 @@ class EthernetService {
             key: 'ip',
             type: 'input',
             templateOptions: {
-              label: 'Input'
+              label: 'IP'
+            }
+          },
+          {
+            key: 'enableDhcp',
+            type: 'mdRadioButton',
+            templateOptions: {
+              options: [
+                {
+                  label: 'dhcp',
+                  value: 0
+                },
+                {
+                  label: 'static',
+                  value: 1
+                }
+              ]
+            }
+          },
+          {
+            key: 'date',
+            type: 'mdDatepicker',
+            templateOptions: {
+              isRequired: false,
+              placeholder: 'Enter date',
+              minDate: undefined,
+              maxDate: undefined
+            }
+          },
+          {
+            key: 'enableDhcp',
+            type: 'mdOption',
+            templateOptions: {
+              options: [
+                {
+                  label: 'dhcp',
+                  value: 0
+                },
+                {
+                  label: 'static',
+                  value: 1
+                }
+              ]
             }
           }
         ]

@@ -1,5 +1,3 @@
-import _ from 'lodash';
-import formly from 'angular-formly';
 import sjCore from 'sanji-core-ui';
 
 import './component-edit.tpl.html';
@@ -10,8 +8,7 @@ import EthernetController from './component.controller';
 import EthernetContainerDirective from './component-container.directive';
 import EthernetDirective from './component.directive';
 
-let app = angular.module('sanji.ethernet', [formly, sjCore]);
-app.constant('_', _);
+let app = angular.module('sanji.ethernet', [sjCore]);
 app.service('ethernetService', EthernetService);
 app.controller('EthernetContainerController', EthernetContainerController);
 app.controller('EthernetController', EthernetController);
