@@ -1,4 +1,5 @@
-const $inject = ['$q', 'rest', 'exception'];
+const $inject = ['$q', 'rest', 'exception', '_', 'pathToRegexp'];
+const config = require('./component.resource.json');
 class EthernetService {
   constructor(...injects) {
     EthernetService.$inject.forEach((item, index) => this[item] = injects[index]);
@@ -6,72 +7,52 @@ class EthernetService {
   }
 
   _transform(data) {
-    return _.map(data, (item, index) => {
-      return {
-        title: 'eth' + index,
-        content: item,
-        fields: [
-          {
-            key: 'ip',
-            type: 'input',
-            templateOptions: {
-              label: 'IP'
-            }
-          },
-          {
-            key: 'enableDhcp',
-            type: 'mdRadioButton',
-            templateOptions: {
-              options: [
-                {
-                  label: 'dhcp',
-                  value: 0
-                },
-                {
-                  label: 'static',
-                  value: 1
-                }
-              ]
-            }
-          },
-          {
-            key: 'date',
-            type: 'mdDatepicker',
-            templateOptions: {
-              isRequired: false,
-              placeholder: 'Enter date',
-              minDate: undefined,
-              maxDate: undefined
-            }
-          },
-          {
-            key: 'enableDhcp',
-            type: 'mdOption',
-            templateOptions: {
-              options: [
-                {
-                  label: 'dhcp',
-                  value: 0
-                },
-                {
-                  label: 'static',
-                  value: 1
-                }
-              ]
-            }
-          }
-        ]
-      };
-    });
+    switch(config.get.type) {
+      case 'collection':
+        return this._.map(data, (item, index) => {
+          return {
+            title: 'eth' + index,
+            content: item,
+            formOptions: {},
+            fields: config.fields
+          };
+        });
+      case 'model':
+        return {
+          content: data,
+          formOptions: {},
+          fields: config.fields
+        };
+      default:
+        return this._.map(data, (item, index) => {
+          return {
+            title: 'eth' + index,
+            content: item,
+            formOptions: {},
+            fields: config.fields
+          };
+        });
+    }
   }
 
   get() {
-    return this.rest.get('/network/ethernets')
+    let toPath = this.pathToRegexp.compile(config.get.url);
+    return this.rest.get(toPath())
     .then(res => {
       this.collection = this._transform(res.data);
     })
     .catch(err => {
       this.exception.catcher('[EthernetService] Get data error.')(err);
+      return this.$q.reject();
+    });
+  }
+
+  update(data) {
+    let toPath = this.pathToRegexp.compile(config.put.url);
+    let path = (undefined !== data.content.id) ? toPath({id: data.content.id}) : toPath();
+    return this.rest.put(path, data.content, data.formOptions.files)
+    .catch(err => {
+      this.exception.catcher('[EthernetService] Update data error.')(err);
       return this.$q.reject();
     });
   }

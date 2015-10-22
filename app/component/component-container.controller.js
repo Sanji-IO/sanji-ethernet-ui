@@ -15,6 +15,10 @@ class EthernetContainerController {
       sanjiWindowMgr.navigateTo(EDIT_STATE);
     });
   }
+
+  onSave(data) {
+    this.ethernetService.update(data);
+  }
 }
 EthernetContainerController.$inject = $inject;
 export default EthernetContainerController;

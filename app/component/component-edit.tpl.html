@@ -2,15 +2,17 @@
   <md-content>
     <md-tabs md-dynamic-height md-border-bottom>
       <md-tab ng-repeat="tab in vm.tabs track by $index" label="{{::tab.title}}">
-        <form role="form" layout="column" layout-padding novalidate>
-
+        <form ng-submit="vm.save(tab)"
+        role="form" layout="column" layout-padding novalidate>
           <md-content>
-            <formly-form model="tab.content" fields="tab.fields" form="tab.form">
+            <formly-form
+            model="tab.content" options="tab.formOptions" fields="tab.fields" form="tab.form">
               <md-button type="submit" class="md-raised md-primary"
-              ng-disabled="tab.form.$invalid">Save</md-button>
+              ng-disabled="tab.form.$invalid">
+                Save
+              </md-button>
             </formly-form>
           </md-content>
-
         </form>
       </md-tab>
     </md-tabs>

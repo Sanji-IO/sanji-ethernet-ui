@@ -1,0 +1,75 @@
+{
+  "get": {
+    "url": "/network/ethernets",
+    "type": "collection"
+  },
+  "put": {
+    "url": "/network/ethernets/:id",
+    "type": "model"
+  },
+  "fields": [
+    {
+      "key": "enableDhcp",
+      "type": "radio",
+      "templateOptions": {
+        "required": true,
+        "options": [
+          {
+            "label": "ETHERNET_FORM_LABEL_DHCP",
+            "value": 1
+          },
+          {
+            "label": "ETHERNET_FORM_LABEL_STATIC",
+            "value": 0
+          }
+        ]
+      }
+    },
+    {
+      "key": "ip",
+      "type": "input",
+      "optionsTypes": "ip",
+      "templateOptions": {
+        "label": "ETHERNET_FORM_LABEL_IP",
+        "required": true
+      }
+    },
+    {
+      "key": "netmask",
+      "type": "input",
+      "optionsTypes": "ip",
+      "templateOptions": {
+        "label": "ETHERNET_FORM_LABEL_NETMASK",
+        "required": true
+      }
+    },
+    {
+      "key": "gateway",
+      "type": "input",
+      "optionsTypes": "ip",
+      "templateOptions": {
+        "label": "ETHERNET_FORM_LABEL_GATEWAY",
+        "required": true
+      }
+    },
+    {
+      "key": "dns[0]",
+      "type": "input",
+      "optionsTypes": "ip",
+      "templateOptions": {
+        "label": "ETHERNET_FORM_LABEL_DNS1",
+        "required": true
+      }
+    },
+    {
+      "key": "dns[1]",
+      "type": "input",
+      "optionsTypes": "ip",
+      "templateOptions": {
+        "label": "ETHERNET_FORM_LABEL_DNS2",
+        "required": true
+      }
+    }
+  ]
+}
+

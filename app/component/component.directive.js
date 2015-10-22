@@ -10,9 +10,10 @@ class EthernetDirective {
     this.restrict = 'EA';
     this.controller = 'EthernetController';
     this.controllerAs = 'vm';
-    this.bindToController = true;
-    this.scope = {
-      tabs: '='
+    this.scope = {};
+    this.bindToController ={
+      tabs: '=',
+      submitCallback: '&onSubmit'
     };
   }
 
