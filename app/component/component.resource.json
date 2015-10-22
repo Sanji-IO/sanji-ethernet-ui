@@ -32,7 +32,8 @@
       "templateOptions": {
         "label": "ETHERNET_FORM_LABEL_IP",
         "required": true
-      }
+      },
+      "hideExpression": "!!model.enableDhcp"
     },
     {
       "key": "netmask",
@@ -41,7 +42,8 @@
       "templateOptions": {
         "label": "ETHERNET_FORM_LABEL_NETMASK",
         "required": true
-      }
+      },
+      "hideExpression": "!!model.enableDhcp"
     },
     {
       "key": "gateway",
@@ -50,7 +52,8 @@
       "templateOptions": {
         "label": "ETHERNET_FORM_LABEL_GATEWAY",
         "required": true
-      }
+      },
+      "hideExpression": "!!model.enableDhcp"
     },
     {
       "key": "dns[0]",
@@ -59,7 +62,8 @@
       "templateOptions": {
         "label": "ETHERNET_FORM_LABEL_DNS1",
         "required": true
-      }
+      },
+      "hideExpression": "!!model.enableDhcp"
     },
     {
       "key": "dns[1]",
@@ -68,7 +72,8 @@
       "templateOptions": {
         "label": "ETHERNET_FORM_LABEL_DNS2",
         "required": true
-      }
+      },
+      "hideExpression": "!!model.enableDhcp"
     }
   ]
 }

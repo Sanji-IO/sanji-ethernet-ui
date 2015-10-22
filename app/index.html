@@ -13,21 +13,28 @@
   <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
 </head>
 
-<body ng-app="webapp">
+<body ng-app="webapp" ng-controller="AppController as app">
   <!--[if lt IE 8]>
   <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
   <div class="container">
-    <md-toolbar>
+    <md-toolbar layout>
       <div class="md-toolbar-tools">
         <h3>Sanji Ethernet Demo</h3>
       </div>
+      <md-input-container>
+        <md-select ng-model="app.currentLang" ng-change="app.changeLang(app.currentLang)">
+          <md-option ng-repeat="lang in app.langs" value="{{lang}}">
+            {{lang}}
+          </md-option>
+        </md-select>
+      </md-input-container>
     </md-toolbar>
 
     <div layout="row" layout-padding layout-align="center center">
       <div flex="33">
-        <sanji-window window-id="ethernet" window-name="Ethernet">
+        <sanji-window window-id="ethernet" window-name="{{'ETHERNET_WINDOW_NAME' | translate}}">
 
           <sanji-window-state state-name="sanji-loading" default-state>
             <div layout="row" layout-sm="column" layout-align="space-around">
@@ -35,7 +42,8 @@
             </div>
           </sanji-window-state>
 
-          <sanji-window-state state-name="sanji-edit" link-name="Settings" icon="settings">
+          <sanji-window-state state-name="sanji-edit"
+          link-name="{{'ETHERNET_WINDOW_SETTING' | translate}}" icon="settings">
             <sanji-ethernet-container></sanji-ethernet-container>
           </sanji-window-state>
 
