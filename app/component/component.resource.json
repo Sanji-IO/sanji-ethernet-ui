@@ -1,7 +1,8 @@
 {
   "get": {
     "url": "/network/ethernets",
-    "type": "collection"
+    "type": "collection",
+    "titlePrefix": "eth"
   },
   "put": {
     "url": "/network/ethernets/:id",

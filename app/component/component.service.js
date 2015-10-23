@@ -3,7 +3,16 @@ const config = require('./component.resource.json');
 class EthernetService {
   constructor(...injects) {
     EthernetService.$inject.forEach((item, index) => this[item] = injects[index]);
-    this.collection = [];
+    switch(config.get.type) {
+      case 'collection':
+        this.data = [];
+        break;
+      case 'model':
+        this.data = {};
+        break;
+      default:
+        this.data = [];
+    }
   }
 
   _transform(data) {
@@ -11,7 +20,7 @@ class EthernetService {
       case 'collection':
         return this._.map(data, (item, index) => {
           return {
-            title: 'eth' + index,
+            title: (config.get.titlePrefix || 'tab') + index,
             content: item,
             formOptions: {},
             fields: config.fields
@@ -26,7 +35,7 @@ class EthernetService {
       default:
         return this._.map(data, (item, index) => {
           return {
-            title: 'eth' + index,
+            title: (config.get.titlePrefix || 'tab') + index,
             content: item,
             formOptions: {},
             fields: config.fields
@@ -39,7 +48,7 @@ class EthernetService {
     let toPath = this.pathToRegexp.compile(config.get.url);
     return this.rest.get(toPath())
     .then(res => {
-      this.collection = this._transform(res.data);
+      this.data = this._transform(res.data);
     })
     .catch(err => {
       this.exception.catcher('[EthernetService] Get data error.')(err);

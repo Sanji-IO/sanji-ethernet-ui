@@ -7,10 +7,12 @@
           <md-content>
             <formly-form
             model="tab.content" options="tab.formOptions" fields="tab.fields" form="tab.form">
-              <md-button type="submit" class="md-raised md-primary"
-              ng-disabled="tab.form.$invalid">
-                <sapn translate="ETHERNET_FORM_SAVE"></span>
-              </md-button>
+              <div layout layout-align="end center">
+                <md-button type="submit" class="md-raised md-primary"
+                ng-disabled="tab.form.$invalid">
+                  <sapn translate="ETHERNET_FORM_SAVE"></span>
+                </md-button>
+              </div>
             </formly-form>
           </md-content>
         </form>

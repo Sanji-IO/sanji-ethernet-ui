@@ -8,10 +8,10 @@ class EthernetContainerController {
     let ethernetService = this.ethernetService;
     let sanjiWindowMgr = this.sanjiWindowService.get(WINDOW_ID);
 
-    this.data = ethernetService.collection;
+    this.data = ethernetService.data;
 
     ethernetService.get().then(() => {
-      this.data = ethernetService.collection;
+      this.data = ethernetService.data;
       sanjiWindowMgr.navigateTo(EDIT_STATE);
     });
   }

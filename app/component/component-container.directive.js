@@ -11,7 +11,7 @@ class EthernetContainerDirective {
     this.controllerAs = 'vm';
     this.scope = {};
     this.bindToController = true;
-    this.template = `<sanji-ethernet tabs="vm.data" on-submit="vm.onSave(data)"></sanji-ethernet>`;
+    this.template = `<sanji-ethernet data="vm.data" on-submit="vm.onSave(data)"></sanji-ethernet>`;
   }
 
   static directiveFactory(...injects) {

@@ -12,7 +12,7 @@ class EthernetDirective {
     this.controllerAs = 'vm';
     this.scope = {};
     this.bindToController ={
-      tabs: '=',
+      tabs: '=data',
       submitCallback: '&onSubmit'
     };
   }
