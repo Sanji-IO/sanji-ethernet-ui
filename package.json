@@ -3,13 +3,22 @@
   "description": "Sanji ethernet UI",
   "version": "0.0.0-semantic-released",
   "main": "index",
-  "czConfig": {
-    "path": "node_modules/cz-conventional-changelog"
+  "config": {
+    "ghooks": {
+      "pre-commit": ""
+    },
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   },
   "scripts": {
+    "test": "NODE_ENV=test karma start",
+    "test:once": "karma start",
     "prebuild": "rm -rf dist && mkdir dist",
     "build": "NODE_ENV=production webpack --config webpack.build.js --display-modules",
     "commit": "git-cz",
+    "check-coverage": "istanbul check-coverage --statements 90 --branches 90 --functions 90 --lines 90",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
     "start": "NODE_ENV=development node server/dev-server.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
@@ -26,6 +35,7 @@
     "eslint-loader": "~1.1.1",
     "extract-text-webpack-plugin": "~0.9.1",
     "file-loader": "~0.8.5",
+    "ghooks": "~1.0.1",
     "html-webpack-plugin": "~1.7.0",
     "json-loader": "~0.5.4",
     "ng-annotate-loader": "0.0.10",
