@@ -8,9 +8,14 @@ var config = require('./webpack.config.js');
 
 config.devtool = 'source-map';
 config.entry = {
-  'sanji-bundle-ui': './sanji-ethernet/index.js'
+  'sanji-ui': './component/index.js'
 };
 config.output.filename = 'sanji-ethernet.js';
+config.output.library = 'sjEthernet';
+config.output.libraryTarget = 'umd';
+config.externals = {
+  'sanji-core-ui': 'sjCore'
+};
 
 config.module.loaders = [
   {
