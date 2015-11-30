@@ -1,7 +1,7 @@
 {
   "name": "sanji-ethernet-ui",
   "description": "Sanji ethernet UI",
-  "main": "index",
+  "main": "dist/sanji-ethernet-ui.js",
   "config": {
     "ghooks": {
       "pre-commit": ""
