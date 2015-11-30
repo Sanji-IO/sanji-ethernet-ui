@@ -12,7 +12,6 @@ config.entry = {
 };
 config.output.filename = 'sanji-ethernet.js';
 config.output.library = 'sjEthernet';
-config.output.libraryTarget = 'umd';
 config.externals = {
   'sanji-core-ui': 'sjCore'
 };
