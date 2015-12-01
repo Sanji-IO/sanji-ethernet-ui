@@ -1,4 +1,3 @@
-var sjEthernet =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -632,7 +631,7 @@ var sjEthernet =
 /* 13 */
 /***/ function(module, exports) {
 
-	module.exports = sjCore;
+	module.exports = sanji-core-ui;
 
 /***/ }
 /******/ ]);
