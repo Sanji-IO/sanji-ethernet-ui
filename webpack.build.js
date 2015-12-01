@@ -11,10 +11,7 @@ config.entry = {
   'sanji-ui': './component/index.js'
 };
 config.output.filename = 'sanji-ethernet-ui.js';
-config.output.library = 'sjEthernet';
-config.externals = {
-  'sanji-core-ui': 'sjCore'
-};
+config.externals = ['sanji-core-ui'];
 
 config.module.loaders = [
   {
