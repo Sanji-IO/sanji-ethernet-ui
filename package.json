@@ -1,7 +1,9 @@
 {
   "name": "sanji-ethernet-ui",
+  "author": "Zack Yang <zack9433@gmail.com> (https://github.com/zack9433)",
   "description": "Sanji ethernet UI",
-  "main": "dist/sanji-ethernet-ui.js",
+  "version": "0.0.0-semantic-released",
+  "main": "index",
   "config": {
     "ghooks": {
       "pre-commit": ""
@@ -63,7 +65,6 @@
   "keywords": [
     "sanji"
   ],
-  "author": "Zack Yang <zack9433@gmail.com> (https://github.com/zack9433)",
   "license": "MIT",
   "homepage": "https://github.com/Sanji-IO/sanji-ethernet-ui",
   "dependencies": {
