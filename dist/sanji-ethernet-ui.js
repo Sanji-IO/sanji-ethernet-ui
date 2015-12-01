@@ -1,4 +1,14 @@
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("sanji-core-ui"));
+	else if(typeof define === 'function' && define.amd)
+		define(["sanji-core-ui"], factory);
+	else {
+		var a = typeof exports === 'object' ? factory(require("sanji-core-ui")) : factory(root["sanji-core-ui"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(this, function(__WEBPACK_EXTERNAL_MODULE_13__) {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -631,8 +641,10 @@
 /* 13 */
 /***/ function(module, exports) {
 
-	module.exports = sanji-core-ui;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_13__;
 
 /***/ }
-/******/ ]);
+/******/ ])
+});
+;
 //# sourceMappingURL=sanji-ethernet-ui.js.map
