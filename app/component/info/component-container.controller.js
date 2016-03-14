@@ -1,8 +1,8 @@
 const $inject = ['$scope', 'sanjiWindowService', 'ethernetService'];
 const WINDOW_ID = 'sanji-ethernet-ui';
-class EthernetContainerController {
+class EthernetInfoContainerController {
   constructor(...injects) {
-    EthernetContainerController.$inject.forEach((item, index) => this[item] = injects[index]);
+    EthernetInfoContainerController.$inject.forEach((item, index) => this[item] = injects[index]);
 
     this.sanjiWindowMgr = this.sanjiWindowService.get(WINDOW_ID);
     this.data = this.ethernetService.data;
@@ -28,5 +28,5 @@ class EthernetContainerController {
     this.sanjiWindowMgr.promise = this.ethernetService.update(data);
   }
 }
-EthernetContainerController.$inject = $inject;
-export default EthernetContainerController;
+EthernetInfoContainerController.$inject = $inject;
+export default EthernetInfoContainerController;
