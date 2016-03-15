@@ -14,5 +14,6 @@
   "ETHERNET_INFO_IP": "網路位址",
   "ETHERNET_INFO_NETMASK": "網路遮罩",
   "ETHERNET_INFO_GATEWAY": "閘道器",
-  "ETHERNET_INFO_DNS": "網域伺服器"
+  "ETHERNET_INFO_DNS": "網域伺服器",
+  "ETHERNET_NETMASK_ERROR_MSG": "網路遮罩格式錯誤"
 }
