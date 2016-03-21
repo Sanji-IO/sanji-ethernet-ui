@@ -1,4 +1,6 @@
+import angular from 'angular';
 import sjCore from 'sanji-core-ui';
+
 import sjEthernetInfo from './info';
 import sjEthernetForm from './form';
 
