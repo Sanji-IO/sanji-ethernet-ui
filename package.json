@@ -81,6 +81,6 @@
   "license": "MIT",
   "homepage": "https://github.com/Sanji-IO/sanji-ethernet-ui",
   "dependencies": {
-    "sanji-core-ui": "~1.15.1"
+    "sanji-core-ui": "~1.15.2"
   }
 }
