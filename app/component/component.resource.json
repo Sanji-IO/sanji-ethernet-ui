@@ -42,7 +42,9 @@
       "optionsTypes": "ip",
       "templateOptions": {
         "label": "ETHERNET_FORM_LABEL_NETMASK",
-        "required": true
+        "required": true,
+        "pattern": "^(254|252|248|240|224|192|128)\\.0\\.0\\.0|255\\.(254|252|248|240|224|192|128|0)\\.0\\.0|255\\.255\\.(254|252|248|240|224|192|128|0)\\.0|255\\.255\\.255\\.(254|252|248|240|224|192|128|0)",
+        "patternValidationMessage": "ETHERNET_NETMASK_ERROR_MSG"
       },
       "hideExpression": "!!model.enableDhcp"
     },

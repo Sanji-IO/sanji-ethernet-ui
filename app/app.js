@@ -1,7 +1,8 @@
 import 'angular-material.css';
-import 'toastr.scss';
+import 'angular-sanji-window.css';
+import 'toastr.css';
 import './app.scss';
-import 'angular';
+import angular from 'angular';
 import component from './component';
 
 let app = angular.module('webapp', [component]);

@@ -12,7 +12,10 @@ config.entry = {
 };
 config.output.filename = 'sanji-ethernet-ui.js';
 config.output.libraryTarget = 'umd';
-config.externals = ['sanji-core-ui'];
+config.externals = [
+  'angular',
+  'sanji-core-ui'
+];
 
 config.module.loaders = [
   {
@@ -23,7 +26,12 @@ config.module.loaders = [
 
 config.plugins.push(
   new ExtractTextPlugin('sanji-ethernet.css'),
-  new WebpackNotifierPlugin({title: 'Webpack'}),
-  new webpack.optimize.DedupePlugin()
+  new webpack.optimize.DedupePlugin(),
+  new webpack.optimize.AggressiveMergingPlugin(),
+  new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false
+    }
+  })
 );
 module.exports = config;
