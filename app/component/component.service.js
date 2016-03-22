@@ -61,7 +61,7 @@ class EthernetService {
     let path = (undefined !== data.content.id) ? toPath({id: data.content.id}) : toPath();
     return this.rest.put(path, data.content, data.formOptions.files, (__DEV__) ? {basePath:  __BASE_PATH__} : undefined)
     .then(res => {
-      logger.success($filter('translate')('ETHERNET_FORM_SAVE_SUCCESS'), res.data);
+      this.logger.success(this.$filter('translate')('ETHERNET_FORM_SAVE_SUCCESS'), res.data);
       return res.data;
     })
     .catch(err => {
