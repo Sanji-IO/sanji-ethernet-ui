@@ -3,6 +3,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var NODE_ENV = process.env.NODE_ENV;
+var BASE_PATH = process.env.BASE_PATH;
 var nodeRoot = path.join(__dirname, 'node_modules');
 var appRoot = path.join(__dirname, 'app');
 var config = {
@@ -40,7 +41,8 @@ var config = {
     new webpack.DefinePlugin({
       __TEST__: 'test' === NODE_ENV,
       __DEV__: 'development' === NODE_ENV,
-      __RELEASE__: 'production' === NODE_ENV
+      __RELEASE__: 'production' === NODE_ENV,
+      __BASE_PATH__: JSON.stringify(BASE_PATH) || '"http://localhost:8000"'
     }),
     new webpack.NoErrorsPlugin()
   ]
