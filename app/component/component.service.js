@@ -1,4 +1,4 @@
-const $inject = ['$q', 'rest', 'exception', '_', 'pathToRegexp'];
+const $inject = ['$q', 'rest', 'exception', '_', 'pathToRegexp', '$filter', 'logger'];
 const config = require('./component.resource.json');
 class EthernetService {
   constructor(...injects) {
@@ -46,7 +46,7 @@ class EthernetService {
 
   get() {
     let toPath = this.pathToRegexp.compile(config.get.url);
-    return this.rest.get(toPath(), (__DEV__) ? {basePath: 'http://localhost:8000'} : undefined)
+    return this.rest.get(toPath(), (__DEV__) ? {basePath: __BASE_PATH__} : undefined)
     .then(res => {
       this.data = this._transform(res.data);
     })
@@ -59,7 +59,11 @@ class EthernetService {
   update(data) {
     let toPath = this.pathToRegexp.compile(config.put.url);
     let path = (undefined !== data.content.id) ? toPath({id: data.content.id}) : toPath();
-    return this.rest.put(path, data.content, data.formOptions.files, (__DEV__) ? {basePath: 'http://localhost:8000' } : undefined)
+    return this.rest.put(path, data.content, data.formOptions.files, (__DEV__) ? {basePath:  __BASE_PATH__} : undefined)
+    .then(res => {
+      logger.success($filter('translate')('ETHERNET_FORM_SAVE_SUCCESS'), res.data);
+      return res.data;
+    })
     .catch(err => {
       this.exception.catcher('[EthernetService] Update data error.')(err);
       return this.$q.reject();
