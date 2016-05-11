@@ -6,13 +6,10 @@ class EthernetInfoContainerController {
 
     this.sanjiWindowMgr = this.sanjiWindowService.get(WINDOW_ID);
     this.data = this.ethernetService.data;
-
-    this.activate();
-
-    this.$scope.$on('sj:window:refresh', this.onRefresh.bind(this))
+    this.$scope.$on('sj:window:refresh', this.onRefresh.bind(this));
   }
 
-  activate() {
+  $onInit() {
     this.sanjiWindowMgr.promise = this.ethernetService.get().then(() => {
       this.data = this.ethernetService.data;
     });
@@ -20,7 +17,7 @@ class EthernetInfoContainerController {
 
   onRefresh(event, args) {
     if (args.id === WINDOW_ID) {
-      this.activate();
+      this.$onInit();
     }
   }
 

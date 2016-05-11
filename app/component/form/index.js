@@ -1,15 +1,15 @@
 import angular from 'angular';
 import sjCore from 'sanji-core-ui';
 
-import './component.tpl.html';
-import EthernetFormContainerController from './component-container.controller';
-import EthernetFormController from './component.controller';
-import EthernetFormContainerDirective from './component-container.directive';
-import EthernetFormDirective from './component.directive';
+import './form.tpl.html';
+import EthernetFormContainerController from './container.controller';
+import EthernetFormController from './form.controller';
+import EthernetFormContainerComponent from './container.component';
+import EthernetFormComponent from './form.component';
 
 let app = angular.module('sanji.ethernet.form', [sjCore]);
 app.controller('EthernetFormContainerController', EthernetFormContainerController);
 app.controller('EthernetFormController', EthernetFormController);
-app.directive('sanjiEthernetFormContainer', EthernetFormContainerDirective.directiveFactory);
-app.directive('sanjiEthernetForm', EthernetFormDirective.directiveFactory);
-export default app = app.name
+app.component('sanjiEthernetFormContainer', EthernetFormContainerComponent);
+app.component('sanjiEthernetForm', EthernetFormComponent);
+export default app = app.name;

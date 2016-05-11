@@ -4,43 +4,43 @@ class EthernetService {
   constructor(...injects) {
     EthernetService.$inject.forEach((item, index) => this[item] = injects[index]);
     switch(config.get.type) {
-      case 'collection':
-        this.data = [];
-        break;
-      case 'model':
-        this.data = {};
-        break;
-      default:
-        this.data = [];
+    case 'collection':
+      this.data = [];
+      break;
+    case 'model':
+      this.data = {};
+      break;
+    default:
+      this.data = [];
     }
   }
 
   _transform(data) {
     switch(config.get.type) {
-      case 'collection':
-        return this._.map(data, (item, index) => {
-          return {
-            title: (config.get.titlePrefix || 'tab') + index,
-            content: item,
-            formOptions: {},
-            fields: config.fields
-          };
-        });
-      case 'model':
+    case 'collection':
+      return this._.map(data, (item, index) => {
         return {
-          content: data,
+          title: (config.get.titlePrefix || 'tab') + index,
+          content: item,
           formOptions: {},
           fields: config.fields
         };
-      default:
-        return this._.map(data, (item, index) => {
-          return {
-            title: (config.get.titlePrefix || 'tab') + index,
-            content: item,
-            formOptions: {},
-            fields: config.fields
-          };
-        });
+      });
+    case 'model':
+      return {
+        content: data,
+        formOptions: {},
+        fields: config.fields
+      };
+    default:
+      return this._.map(data, (item, index) => {
+        return {
+          title: (config.get.titlePrefix || 'tab') + index,
+          content: item,
+          formOptions: {},
+          fields: config.fields
+        };
+      });
     }
   }
 
