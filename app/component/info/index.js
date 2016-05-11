@@ -1,15 +1,15 @@
 import angular from 'angular';
 import sjCore from 'sanji-core-ui';
 
-import './component.tpl.html';
-import EthernetInfoContainerController from './component-container.controller';
-import EthernetInfoController from './component.controller';
-import EthernetInfoContainerDirective from './component-container.directive';
-import EthernetInfoDirective from './component.directive';
+import './info.tpl.html';
+import EthernetInfoContainerController from './container.controller';
+import EthernetInfoController from './info.controller';
+import EthernetInfoContainerComponent from './container.component';
+import EthernetInfoComponent from './info.component';
 
 let app = angular.module('sanji.ethernet.info', [sjCore]);
 app.controller('EthernetInfoContainerController', EthernetInfoContainerController);
 app.controller('EthernetInfoController', EthernetInfoController);
-app.directive('sanjiEthernetInfoContainer', EthernetInfoContainerDirective.directiveFactory);
-app.directive('sanjiEthernetInfo', EthernetInfoDirective.directiveFactory);
-export default app = app.name
+app.component('sanjiEthernetInfoContainer', EthernetInfoContainerComponent);
+app.component('sanjiEthernetInfo', EthernetInfoComponent);
+export default app = app.name;
