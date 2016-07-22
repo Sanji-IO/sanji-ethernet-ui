@@ -1,3 +1,3 @@
-import component from './app/component';
+import {sjEthernet} from './app/component';
 
-export default component;
+export {sjEthernet};
