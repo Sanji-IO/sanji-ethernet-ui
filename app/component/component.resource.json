@@ -63,8 +63,7 @@
       "type": "input",
       "optionsTypes": "ip",
       "templateOptions": {
-        "label": "ETHERNET_FORM_LABEL_DNS1",
-        "required": true
+        "label": "ETHERNET_FORM_LABEL_DNS1"
       },
       "hideExpression": "!!model.enableDhcp"
     },
@@ -73,8 +72,7 @@
       "type": "input",
       "optionsTypes": "ip",
       "templateOptions": {
-        "label": "ETHERNET_FORM_LABEL_DNS2",
-        "required": true
+        "label": "ETHERNET_FORM_LABEL_DNS2"
       },
       "hideExpression": "!!model.enableDhcp"
     }
