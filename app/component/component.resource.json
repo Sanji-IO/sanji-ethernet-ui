@@ -17,11 +17,11 @@
         "options": [
           {
             "label": "ETHERNET_FORM_LABEL_DHCP",
-            "value": 1
+            "value": true
           },
           {
             "label": "ETHERNET_FORM_LABEL_STATIC",
-            "value": 0
+            "value": false
           }
         ]
       }
