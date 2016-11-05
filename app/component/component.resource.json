@@ -53,8 +53,7 @@
       "type": "input",
       "optionsTypes": "ip",
       "templateOptions": {
-        "label": "ETHERNET_FORM_LABEL_GATEWAY",
-        "required": true
+        "label": "ETHERNET_FORM_LABEL_GATEWAY"
       },
       "hideExpression": "!!model.enableDhcp"
     },
