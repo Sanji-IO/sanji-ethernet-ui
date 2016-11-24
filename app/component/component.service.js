@@ -14,46 +14,22 @@ class EthernetService {
         error: '[EthernetService] Update data error.'
       }
     };
-
-    switch(config.get.type) {
-    case 'collection':
-      this.data = [];
-      break;
-    case 'model':
-      this.data = {};
-      break;
-    default:
-      this.data = [];
-    }
+    this.data = [];
   }
 
   _transform(data) {
-    switch(config.get.type) {
-    case 'collection':
-      return _.map(data, (item, index) => {
-        return {
-          title: (config.get.titlePrefix || 'tab') + index,
-          content: item,
-          formOptions: {},
-          fields: config.fields
-        };
-      });
-    case 'model':
+    return _.map(data, (item, index) => {
+      const tmp = _.cloneDeep(config.fields);
+      if (0 < index) {
+        tmp.splice(3);
+      }
       return {
-        content: data,
+        title: (config.get.titlePrefix || 'tab') + index,
+        content: item,
         formOptions: {},
-        fields: config.fields
+        fields: tmp
       };
-    default:
-      return _.map(data, (item, index) => {
-        return {
-          title: (config.get.titlePrefix || 'tab') + index,
-          content: item,
-          formOptions: {},
-          fields: config.fields
-        };
-      });
-    }
+    });
   }
 
   setResponseMsg(message) {
