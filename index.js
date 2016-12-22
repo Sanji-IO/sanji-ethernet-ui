@@ -1,3 +1,3 @@
-import {sjEthernet} from './app/component';
+import {sjEthernet} from './src/component';
 
 export {sjEthernet};

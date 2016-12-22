@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import { cloneDeep } from 'lodash/fp';
 
 const $inject = ['$q', 'rest', 'exception', 'pathToRegexp', '$filter', 'logger'];
 const config = require('./component.resource.json');
@@ -14,12 +14,15 @@ class EthernetService {
         error: '[EthernetService] Update data error.'
       }
     };
+    this.restConfig = {
+      basePath: (process.env.NODE_ENV === 'development') ? __BASE_PATH__ : undefined
+    };
     this.data = [];
   }
 
   _transform(data) {
-    return _.map(data, (item, index) => {
-      const tmp = _.cloneDeep(config.fields);
+    return data.map((item, index) => {
+      const tmp = cloneDeep(config.fields);
       if (0 < index) {
         tmp.splice(3);
       }
@@ -40,7 +43,7 @@ class EthernetService {
 
   get() {
     const toPath = this.pathToRegexp.compile(config.get.url);
-    return this.rest.get(toPath(), (__DEV__) ? {basePath: __BASE_PATH__} : undefined)
+    return this.rest.get(toPath(), this.restConfig)
     .then(res => this.data = this._transform(res.data))
     .catch(err => {
       this.exception.catcher(this.$filter('translate')(this.message.get.error))(err);
@@ -51,7 +54,7 @@ class EthernetService {
   update(data) {
     const toPath = this.pathToRegexp.compile(config.put.url);
     const path = (undefined !== data.content.id) ? toPath({id: data.content.id}) : toPath();
-    return this.rest.put(path, data.content, data.formOptions.files, (__DEV__) ? {basePath:  __BASE_PATH__} : undefined)
+    return this.rest.put(path, data.content, data.formOptions.files, this.restConfig)
     .then(res => {
       this.logger.success(this.$filter('translate')(this.message.update.success), res.data);
       return res.data;

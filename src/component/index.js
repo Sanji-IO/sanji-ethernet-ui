@@ -1,5 +1,4 @@
 import angular from 'angular';
-import {sjCore} from 'sanji-core-ui';
 
 import {sjEthernetInfo} from './info';
 import {sjEthernetForm} from './form';
@@ -9,7 +8,6 @@ import EthernetService from './component.service';
 import EthernetWindowComponent from './window.component';
 
 const sjEthernet = angular.module('sanji.ethernet', [
-  sjCore,
   sjEthernetInfo,
   sjEthernetForm
 ])
