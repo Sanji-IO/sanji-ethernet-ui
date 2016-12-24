@@ -5,7 +5,11 @@ class EthernetFormController {
   }
 
   save(data) {
-    this.submitCallback({data: data});
+    this.submitCallback({
+      $event: {
+        data: data
+      }
+    });
   }
 }
 EthernetFormController.$inject = $inject;

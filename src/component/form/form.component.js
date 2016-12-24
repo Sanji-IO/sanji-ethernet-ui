@@ -6,7 +6,6 @@ const EthernetFormComponent = {
     submitCallback: '&onSubmit'
   },
   templateUrl: 'sanji-ethernet-form.tpl.html',
-  controller: EthernetFormController,
-  controllerAs: 'vm'
+  controller: EthernetFormController
 };
 export default EthernetFormComponent;
