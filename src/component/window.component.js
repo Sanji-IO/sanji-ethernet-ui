@@ -10,7 +10,7 @@ const EthernetWindowComponent = {
                 icon="info">
                 <sanji-ethernet-info-container></sanji-ethernet-info-container>
               </sanji-window-state>
-              <sanji-window-state ng-if="::$ctrl.isAuthorized(['superadmin', 'admin'])"
+              <sanji-window-state ng-if="::$ctrl.isAuthorized(['root', 'admin'])"
                 state-name="sanji-form"
                 link-name="{{'ETHERNET_WINDOW_SETTING' | translate}}"
                 icon="settings">
