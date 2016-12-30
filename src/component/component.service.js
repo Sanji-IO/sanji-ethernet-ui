@@ -1,5 +1,3 @@
-import { cloneDeep } from 'lodash/fp';
-
 const $inject = ['$q', 'rest', 'exception', 'pathToRegexp', '$filter', 'logger'];
 const config = require('./component.resource.json');
 class EthernetService {
@@ -21,15 +19,11 @@ class EthernetService {
 
   _transform(data) {
     return data.map((item, index) => {
-      const tmp = cloneDeep(config.fields);
-      if (0 < index) {
-        tmp.splice(3);
-      }
       return {
         title: (config.get.titlePrefix || 'tab') + index,
         content: item,
         formOptions: {},
-        fields: tmp
+        fields: (0 !== index) ? config.fields.slice(0, 3) : config.fields
       };
     });
   }
