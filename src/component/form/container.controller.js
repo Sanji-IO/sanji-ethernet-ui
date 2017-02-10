@@ -25,7 +25,7 @@ class EthernetFormContainerController {
 
   onRefresh(event, args) {
     if (args.id === WINDOW_ID) {
-      this.sanjiWindowMgr.promise = this.getEthernets({force: true});
+      this.sanjiWindowMgr.promise = this.getEthernets({ force: true });
     }
   }
 

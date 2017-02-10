@@ -8,13 +8,10 @@ import { EthernetAction, ethernets, GET_ETHERNETS, UPDATE_ETHERNET } from './com
 import EthernetService from './component.service';
 import EthernetWindowComponent from './window.component';
 
-const sjEthernet = angular.module('sanji.ethernet', [
-  sjEthernetInfo,
-  sjEthernetForm
-])
+const sjEthernet = angular
+  .module('sanji.ethernet', [sjEthernetInfo, sjEthernetForm])
   .config(i18nConfig)
   .factory('ethernetAction', EthernetAction)
   .service('ethernetService', EthernetService)
-  .component('sanjiEthernetWindow', EthernetWindowComponent)
-  .name;
-export { sjEthernet , ethernets, GET_ETHERNETS, UPDATE_ETHERNET };
+  .component('sanjiEthernetWindow', EthernetWindowComponent).name;
+export { sjEthernet, ethernets, GET_ETHERNETS, UPDATE_ETHERNET };

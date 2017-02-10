@@ -13,7 +13,7 @@ class EthernetService {
       }
     };
     this.restConfig = {
-      basePath: (process.env.NODE_ENV === 'development') ? __BASE_PATH__ : undefined
+      basePath: process.env.NODE_ENV === 'development' ? __BASE_PATH__ : undefined
     };
   }
 
@@ -23,7 +23,7 @@ class EthernetService {
         title: (config.get.titlePrefix || 'tab') + index,
         content: item,
         formOptions: {},
-        fields: (0 !== index) ? config.fields.slice(0, 3) : config.fields
+        fields: index !== 0 ? config.fields.slice(0, 3) : config.fields
       };
     });
   }
@@ -36,9 +36,7 @@ class EthernetService {
 
   get() {
     const toPath = this.pathToRegexp.compile(config.get.url);
-    return this.rest.get(toPath(), this.restConfig)
-    .then(res => this._transform(res.data))
-    .catch(err => {
+    return this.rest.get(toPath(), this.restConfig).then(res => this._transform(res.data)).catch(err => {
       this.exception.catcher(this.$filter('translate')(this.message.get.error))(err);
       return this.$q.reject();
     });
@@ -46,16 +44,17 @@ class EthernetService {
 
   update(data) {
     const toPath = this.pathToRegexp.compile(config.put.url);
-    const path = (undefined !== data.content.id) ? toPath({id: data.content.id}) : toPath();
-    return this.rest.put(path, data.content, data.formOptions.files, this.restConfig)
-    .then(res => {
-      this.logger.success(this.$filter('translate')(this.message.update.success), res.data);
-      return res.data;
-    })
-    .catch(err => {
-      this.exception.catcher(this.$filter('translate')(this.message.update.error))(err);
-      return this.$q.reject();
-    });
+    const path = undefined !== data.content.id ? toPath({ id: data.content.id }) : toPath();
+    return this.rest
+      .put(path, data.content, data.formOptions.files, this.restConfig)
+      .then(res => {
+        this.logger.success(this.$filter('translate')(this.message.update.success), res.data);
+        return res.data;
+      })
+      .catch(err => {
+        this.exception.catcher(this.$filter('translate')(this.message.update.error))(err);
+        return this.$q.reject();
+      });
   }
 }
 EthernetService.$inject = $inject;

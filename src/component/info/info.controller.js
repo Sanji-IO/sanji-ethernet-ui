@@ -5,7 +5,7 @@ class EthernetInfoController {
   }
 
   save(data) {
-    this.submitCallback({data: data});
+    this.submitCallback({ data: data });
   }
 }
 EthernetInfoController.$inject = $inject;
