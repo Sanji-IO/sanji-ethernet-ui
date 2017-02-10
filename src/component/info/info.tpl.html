@@ -14,7 +14,7 @@
           <p class="md-body-2" translate="ETHERNET_INFO_NETMASK"></p>
           <span ng-bind="tab.content.netmask"></span>
         </md-list-item>
-        <md-list-item>
+        <md-list-item ng-if="tab.content.wan === 'WAN'">
           <p class="md-body-2" translate="ETHERNET_INFO_GATEWAY"></p>
           <span ng-bind="tab.content.gateway || ''"></span>
         </md-list-item>
