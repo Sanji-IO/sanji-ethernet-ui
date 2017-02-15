@@ -16,5 +16,5 @@
   "ETHERNET_INFO_NETMASK": "Netmask",
   "ETHERNET_INFO_GATEWAY": "Gateway",
   "ETHERNET_INFO_DNS": "DNS",
-  "ETHERNET_NETMASK_ERROR_MSG": "Invalid netmask format"
+  "ETHERNET_NETMASK_ERROR_MSG": "Invalid netmask format!"
 }
