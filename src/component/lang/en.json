@@ -10,7 +10,7 @@
   "ETHERNET_FORM_LABEL_DNS1": "DNS 1",
   "ETHERNET_FORM_LABEL_DNS2": "DNS 2",
   "ETHERNET_FORM_SAVE": "Save",
-  "ETHERNET_FORM_SAVE_SUCCESS": "Data update successful",
+  "ETHERNET_FORM_SAVE_SUCCESS": "Ethernet data has been updated!",
   "ETHERNET_INFO_TYPE": "Type",
   "ETHERNET_INFO_IP": "IP",
   "ETHERNET_INFO_NETMASK": "Netmask",
