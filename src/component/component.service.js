@@ -20,7 +20,6 @@ class EthernetService {
   _transform(data) {
     return data.map((item, index) => {
       return {
-        title: (config.get.titlePrefix || 'tab') + index,
         content: item,
         formOptions: {},
         fields: index !== 0 ? config.fields.slice(0, 3) : config.fields
