@@ -10,11 +10,11 @@ export const UPDATE_ETHERNET = 'UPDATE_ETHERNET';
 
 export const EthernetAction = ($q, ethernetService) => {
   'ngInject';
-  const getEthernets = options => {
+  const getEthernets = (options = { force: false }) => {
     return (dispatch, getState) => {
       const { ethernets } = getState();
 
-      if (options && !options.force && ethernets.length) {
+      if (!options.force && ethernets.length) {
         return $q.when(ethernets).then(() => dispatch({ type: GET_ETHERNETS, payload: ethernets }));
       } else {
         return ethernetService.get().then(data => dispatch({ type: GET_ETHERNETS, payload: data }));

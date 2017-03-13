@@ -12,8 +12,8 @@
     {
       "key": "enableDhcp",
       "type": "radio",
+      "defaultValue": false,
       "templateOptions": {
-        "required": true,
         "options": [
           {
             "label": "ETHERNET_FORM_LABEL_DHCP",
@@ -77,4 +77,3 @@
     }
   ]
 }
-
