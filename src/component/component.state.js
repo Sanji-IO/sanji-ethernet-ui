@@ -24,7 +24,10 @@ export const EthernetAction = ($q, ethernetService) => {
 
   const updateEthernet = ethernet => {
     return dispatch => {
-      return ethernetService.update(ethernet).then(() => dispatch({ type: UPDATE_ETHERNET, payload: ethernet }));
+      return ethernetService.update(ethernet).then(payload => {
+        dispatch({ type: UPDATE_ETHERNET, payload });
+        return payload;
+      });
     };
   };
 

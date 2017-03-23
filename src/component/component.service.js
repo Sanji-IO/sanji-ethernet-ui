@@ -48,7 +48,7 @@ class EthernetService {
       .put(path, data.content, data.formOptions.files, this.restConfig)
       .then(res => {
         this.logger.success(this.$filter('translate')(this.message.update.success), res.data);
-        return res.data;
+        return { content: res.data };
       })
       .catch(err => {
         this.exception.catcher(this.$filter('translate')(this.message.update.error))(err);

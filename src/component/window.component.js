@@ -1,10 +1,9 @@
 const EthernetWindowComponent = {
   bindings: {
     onAuthorized: '&',
-    onLogout: '&'
+    onLogout: '&?'
   },
-  template: (
-    `<sanji-window window-id="sanji-ethernet-ui"
+  template: `<sanji-window window-id="sanji-ethernet-ui"
         window-name="{{'ETHERNET_WINDOW_NAME' | translate}}" show-loading-btn>
         <sanji-window-state default-state
           state-name="sanji-info"
@@ -18,21 +17,17 @@ const EthernetWindowComponent = {
           icon="settings">
           <sanji-ethernet-form-container on-logout="$ctrl.onLogout()"></sanji-ethernet-form-container>
         </sanji-window-state>
-      </sanji-window>`
-  ),
-  controller: (
-    class EthernetWindowController {
-      constructor() {
-      }
+      </sanji-window>`,
+  controller: class EthernetWindowController {
+    constructor() {}
 
-      isAuthorized(roles) {
-        return this.onAuthorized({
-          $event: {
-            roles: roles
-          }
-        });
-      }
+    isAuthorized(roles) {
+      return this.onAuthorized({
+        $event: {
+          roles: roles
+        }
+      });
     }
-  )
+  }
 };
 export default EthernetWindowComponent;
