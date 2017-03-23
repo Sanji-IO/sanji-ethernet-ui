@@ -30,7 +30,7 @@ class EthernetFormContainerController {
   }
 
   onSave(event) {
-    this.sanjiWindowMgr.promise = this.updateEthernet(event.data);
+    return this.sanjiWindowMgr.promise = this.updateEthernet(event.data);
   }
 }
 EthernetFormContainerController.$inject = $inject;

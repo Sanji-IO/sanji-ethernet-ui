@@ -3,30 +3,20 @@
     "kentcdodds/possible-errors",
     "kentcdodds/es6/possible-errors",
     "kentcdodds/es6/stylistic",
-    "kentcdodds/best-practices",
-    "prettier"
-  ],
-  "plugins": [
-    "prettier"
+    "kentcdodds/best-practices"
   ],
   "globals": {
-    "agular": true,
+    "angular": true,
     "sinon": true,
     "expect": true,
     "__BASE_PATH__": true,
     "__API_TOKEN__": true
   },
   "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "printWidth": 120,
-        "singleQuote": true
-      }
-    ],
     "no-console": "off",
     "complexity": "off",
     "no-return-assign": "off",
-    "babel/object-curly-spacing": "off"
+    "babel/object-curly-spacing": "off",
+    "babel/semi": "off"
   }
 }

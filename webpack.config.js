@@ -24,7 +24,7 @@ const config = {
   },
   module: {
     rules: [
-      { test: /\.js$/, use: 'eslint-loader?fix=true', exclude: /node_modules/, enforce: 'pre' },
+      { test: /\.js$/, use: 'eslint-loader', exclude: /node_modules/, enforce: 'pre' },
       { test: /\.js$/, use: 'babel-loader?cacheDirectory', exclude: /node_modules/ },
       { test: /\.json$/, use: 'json-loader', exclude: /node_modules/ },
       {
