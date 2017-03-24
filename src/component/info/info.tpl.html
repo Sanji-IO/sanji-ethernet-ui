@@ -1,6 +1,6 @@
 <script type ="text/ng-template" id="sanji-ethernet-info.tpl.html">
-  <md-tabs md-dynamic-height md-border-bottom>
-    <md-tab ng-repeat="tab in vm.tabs track by $index" label="{{::tab.content.name}}">
+  <md-tabs md-dynamic-height md-border-bottom md-selected="$ctrl.tabIndex">
+    <md-tab ng-repeat="tab in $ctrl.tabs track by $index" label="{{::tab.content.name}}">
       <md-list>
         <md-list-item>
           <p class="md-body-2" translate="ETHERNET_INFO_TYPE"></p>

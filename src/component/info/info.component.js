@@ -2,10 +2,10 @@ import EthernetInfoController from './info.controller';
 
 const EthernetInfoComponent = {
   bindings: {
-    tabs: '<data'
+    tabs: '<data',
+    tabIndex: '='
   },
   templateUrl: 'sanji-ethernet-info.tpl.html',
-  controller: EthernetInfoController,
-  controllerAs: 'vm'
+  controller: EthernetInfoController
 };
 export default EthernetInfoComponent;
