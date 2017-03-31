@@ -24,9 +24,20 @@ export const EthernetAction = ($q, ethernetService) => {
 
   const updateEthernet = ethernet => {
     return dispatch => {
+      const oldVal = ethernetService.cache.find(item => item.id === ethernet.content.id);
+
       return ethernetService.update(ethernet).then(payload => {
         dispatch({ type: UPDATE_ETHERNET, payload });
-        return payload;
+        if (window.location.hostname === oldVal.ip) {
+          if (
+            ethernet.content.ip !== oldVal.ip ||
+            ethernet.content.netmask !== oldVal.netmask ||
+            ethernet.content.gateway !== oldVal.gateway
+          ) {
+            return { isLogout: true };
+          }
+        }
+        return { isLogout: false };
       });
     };
   };

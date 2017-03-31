@@ -31,7 +31,7 @@ class EthernetFormContainerController {
 
   onSave(event) {
     return (this.sanjiWindowMgr.promise = this.updateEthernet(event.data).then(data => {
-      if (data.content.restart) {
+      if (data.isLogout) {
         this.onLogout();
       }
     }));

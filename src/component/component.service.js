@@ -1,3 +1,5 @@
+import { cloneDeep } from 'lodash/fp';
+
 const $inject = ['$q', 'rest', 'exception', 'pathToRegexp', '$filter', 'logger'];
 const config = require('./component.resource.json');
 class EthernetService {
@@ -15,6 +17,7 @@ class EthernetService {
     this.restConfig = {
       basePath: process.env.NODE_ENV === 'development' ? __BASE_PATH__ : undefined
     };
+    this.cache;
   }
 
   _transform(data) {
@@ -35,10 +38,16 @@ class EthernetService {
 
   get() {
     const toPath = this.pathToRegexp.compile(config.get.url);
-    return this.rest.get(toPath(), this.restConfig).then(res => this._transform(res.data)).catch(err => {
-      this.exception.catcher(this.$filter('translate')(this.message.get.error))(err);
-      return this.$q.reject();
-    });
+    return this.rest
+      .get(toPath(), this.restConfig)
+      .then(res => {
+        this.cache = cloneDeep(res.data);
+        return this._transform(res.data);
+      })
+      .catch(err => {
+        this.exception.catcher(this.$filter('translate')(this.message.get.error))(err);
+        return this.$q.reject();
+      });
   }
 
   update(data) {
