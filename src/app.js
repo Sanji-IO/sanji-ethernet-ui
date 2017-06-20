@@ -23,8 +23,8 @@ class AppController {
     return this.auth.isAuthorized(event.roles);
   }
 
-  logout() {
-    console.log('logout execute');
+  logout(event) {
+    console.log('logout execute', event);
   }
 }
 app.config(reduxHelperProvider => {

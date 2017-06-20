@@ -15,7 +15,7 @@ const EthernetWindowComponent = {
           state-name="sanji-form"
           link-name="{{'ETHERNET_WINDOW_SETTING' | translate}}"
           icon="settings">
-          <sanji-ethernet-form-container on-logout="$ctrl.onLogout()"></sanji-ethernet-form-container>
+          <sanji-ethernet-form-container on-logout="$ctrl.logout($event)"></sanji-ethernet-form-container>
         </sanji-window-state>
       </sanji-window>`,
   controller: class EthernetWindowController {
@@ -26,6 +26,12 @@ const EthernetWindowComponent = {
         $event: {
           roles: roles
         }
+      });
+    }
+
+    logout(event) {
+      this.onLogout({
+        $event: event
       });
     }
   }

@@ -2,7 +2,7 @@ const $inject = ['$scope', '$ngRedux', 'sanjiWindowService', 'ethernetAction'];
 const WINDOW_ID = 'sanji-ethernet-ui';
 class EthernetFormContainerController {
   constructor(...injects) {
-    EthernetFormContainerController.$inject.forEach((item, index) => this[item] = injects[index]);
+    EthernetFormContainerController.$inject.forEach((item, index) => (this[item] = injects[index]));
   }
 
   $onInit() {
@@ -32,7 +32,11 @@ class EthernetFormContainerController {
   onSave(event) {
     return (this.sanjiWindowMgr.promise = this.updateEthernet(event.data).then(data => {
       if (data.isLogout) {
-        this.onLogout();
+        this.onLogout({
+          $event: {
+            redirectIp: data.ip
+          }
+        });
       }
     }));
   }

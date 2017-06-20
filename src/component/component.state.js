@@ -36,7 +36,7 @@ export const EthernetAction = ($q, ethernetService) => {
           ) {
             // SET_REBOOT_REASON define in sanji-maintenance-ui
             dispatch({ type: 'SET_REBOOT_REASON', payload: 'ethernet-ip-changed' });
-            return { isLogout: true };
+            return { isLogout: true, ip: ethernet.content.ip };
           }
         }
         return { isLogout: false };
