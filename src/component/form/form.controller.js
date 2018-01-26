@@ -1,7 +1,7 @@
 const $inject = [];
 class EthernetFormController {
   constructor(...injects) {
-    EthernetFormController.$inject.forEach((item, index) => this[item] = injects[index]);
+    EthernetFormController.$inject.forEach((item, index) => (this[item] = injects[index]));
   }
 
   save(data) {
