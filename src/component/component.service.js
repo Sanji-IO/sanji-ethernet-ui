@@ -15,7 +15,8 @@ class EthernetService {
       }
     };
     this.restConfig = {
-      basePath: process.env.NODE_ENV === 'development' ? __BASE_PATH__ : undefined
+      basePath: process.env.NODE_ENV === 'development' ? __BASE_PATH__ : undefined,
+      headers: { 'mx-api-token': __API_TOKEN__ }
     };
     this.cache;
   }
