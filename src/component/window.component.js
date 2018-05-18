@@ -5,13 +5,7 @@ const EthernetWindowComponent = {
   },
   template: `<sanji-window window-id="sanji-ethernet-ui"
         window-name="{{'ETHERNET_WINDOW_NAME' | translate}}" show-loading-btn>
-        <sanji-window-state default-state
-          state-name="sanji-info"
-          link-name="{{'ETHERNET_WINDOW_INFO' | translate}}"
-          icon="info">
-          <sanji-ethernet-info-container></sanji-ethernet-info-container>
-        </sanji-window-state>
-        <sanji-window-state ng-if="::$ctrl.isAuthorized(['root', 'admin'])"
+        <sanji-window-state default-state ng-if="::$ctrl.isAuthorized(['root', 'admin'])"
           state-name="sanji-form"
           link-name="{{'ETHERNET_WINDOW_SETTING' | translate}}"
           icon="settings">
