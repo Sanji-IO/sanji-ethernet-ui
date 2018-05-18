@@ -2,6 +2,7 @@ import { cloneDeep } from 'lodash/fp';
 
 const $inject = ['$q', 'rest', 'exception', 'pathToRegexp', '$filter', 'logger'];
 const config = require('./component.resource.json');
+
 class EthernetService {
   constructor(...injects) {
     EthernetService.$inject.forEach((item, index) => (this[item] = injects[index]));
@@ -66,5 +67,7 @@ class EthernetService {
       });
   }
 }
+
 EthernetService.$inject = $inject;
+
 export default EthernetService;
