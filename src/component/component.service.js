@@ -22,11 +22,11 @@ class EthernetService {
   }
 
   _transform(data) {
-    return data.map((item, index) => {
+    return data.map(item => {
       return {
         content: item,
         formOptions: {},
-        fields: index !== 0 ? config.fields.slice(0, 3) : config.fields
+        fields: item.wan ? config.wanFields : config.lanFields
       };
     });
   }

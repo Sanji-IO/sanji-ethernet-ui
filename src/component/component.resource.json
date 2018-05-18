@@ -8,7 +8,7 @@
     "url": "/network/ethernets/:id",
     "type": "model"
   },
-  "fields": [
+  "wanFields": [
     {
       "key": "enableDhcp",
       "type": "radio",
@@ -74,6 +74,38 @@
         "label": "ETHERNET_FORM_LABEL_DNS2"
       },
       "hideExpression": "!!model.enableDhcp"
+    }
+  ],
+  "lanFields": [
+    {
+      "key": "ip",
+      "type": "input",
+      "optionsTypes": "ip",
+      "templateOptions": {
+        "label": "ETHERNET_FORM_LABEL_IP",
+        "required": true
+      },
+      "hideExpression": "!!model.enableDhcp"
+    },
+    {
+      "key": "netmask",
+      "type": "input",
+      "optionsTypes": "ip",
+      "templateOptions": {
+        "label": "ETHERNET_FORM_LABEL_NETMASK",
+        "required": true,
+        "pattern": "^(254|252|248|240|224|192|128)\\.0\\.0\\.0|255\\.(254|252|248|240|224|192|128|0)\\.0\\.0|255\\.255\\.(254|252|248|240|224|192|128|0)\\.0|255\\.255\\.255\\.(254|252|248|240|224|192|128|0)",
+        "patternValidationMessage": "ETHERNET_NETMASK_ERROR_MSG"
+      },
+      "hideExpression": "!!model.enableDhcp"
+    },
+    {
+      "key": "dhcp-server",
+      "type": "input",
+      "optionsTypes": "ip",
+      "templateOptions": {
+        "label": "ETHERNET_FORM_LABEL_DHCP_SERVER"
+      }
     }
   ]
 }
