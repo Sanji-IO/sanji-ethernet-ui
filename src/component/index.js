@@ -14,4 +14,5 @@ const sjEthernet = angular
   .factory('ethernetAction', EthernetAction)
   .service('ethernetService', EthernetService)
   .component('sanjiEthernetWindow', EthernetWindowComponent).name;
+
 export { sjEthernet, ethernets, GET_ETHERNETS, UPDATE_ETHERNET };
