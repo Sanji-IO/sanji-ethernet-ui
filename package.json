@@ -5,14 +5,13 @@
   "version": "0.0.0-development",
   "main": "index",
   "config": {
-    "ghooks": {
-      "pre-commit": ""
-    },
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
     }
   },
   "scripts": {
+    "precommit": "lint-staged",
+    "format": "prettier-eslint --print-width=120 --trailing-comma=none --single-quote=true --write \"src/**/*.js\"",
     "validate": "yarn test:once && yarn check-coverage",
     "start": "yarn mock:serve && yarn dev:serve",
     "dev:serve": "cross-env NODE_ENV=development node server/dev-server.js && kill $npm_package_config_mockserver",
@@ -31,7 +30,7 @@
   },
   "devDependencies": {
     "angular-mocks": "~1.6.8",
-    "sanji-common-devs-ui": "^7.0.0",
+    "sanji-common-devs-ui": "^7.0.1",
     "sanji-core-ui": "^4.0.0",
     "sanji-openapi-mock": "github:sanji-io/sanji-openapi-mockserver",
     "semantic-release": "^12.2.5",
@@ -44,12 +43,13 @@
   "bugs": {
     "url": "https://github.com/Sanji-IO/sanji-ethernet-ui/issues"
   },
-  "keywords": [
-    "sanji"
-  ],
+  "keywords": ["sanji"],
   "license": "MIT",
   "homepage": "https://github.com/Sanji-IO/sanji-ethernet-ui",
   "peerDependencies": {
     "sanji-core-ui": "^4.0.0"
+  },
+  "lint-staged": {
+    "*.{js,json,md}": ["prettier-eslint --print-width=120 --trailing-comma=none --single-quote=true --write", "git add"]
   }
 }
