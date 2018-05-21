@@ -13,7 +13,6 @@ const EthernetWindowComponent = {
         </sanji-window-state>
       </sanji-window>`,
   controller: class EthernetWindowController {
-
     constructor() {}
 
     isAuthorized(roles) {
@@ -29,7 +28,6 @@ const EthernetWindowComponent = {
         $event: event
       });
     }
-  
-}
+  }
 };
 export default EthernetWindowComponent;

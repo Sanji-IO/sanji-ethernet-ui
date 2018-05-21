@@ -4,7 +4,6 @@ const $inject = ['$q', 'rest', 'exception', 'pathToRegexp', '$filter', 'logger']
 const config = require('./component.resource.json');
 
 class EthernetService {
-
   constructor(...injects) {
     EthernetService.$inject.forEach((item, index) => (this[item] = injects[index]));
     this.message = {
@@ -67,7 +66,6 @@ class EthernetService {
         return this.$q.reject();
       });
   }
-
 }
 
 EthernetService.$inject = $inject;
