@@ -1,8 +1,6 @@
 import angular from 'angular';
-
 import { sjEthernetInfo } from './info';
 import { sjEthernetForm } from './form';
-
 import i18nConfig from './component.i18n';
 import { EthernetAction, ethernets, GET_ETHERNETS, UPDATE_ETHERNET } from './component.module';
 import EthernetService from './ethernet.service';
