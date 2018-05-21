@@ -3,10 +3,8 @@
     "kentcdodds/possible-errors",
     "kentcdodds/es6/possible-errors",
     "kentcdodds/es6/stylistic",
-    "kentcdodds/best-practices",
-    "prettier"
+    "kentcdodds/best-practices"
   ],
-  "plugins": ["prettier"],
   "env": {
     "es6": true,
     "browser": true,
@@ -24,18 +22,11 @@
     "__VERSION__": true
   },
   "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "printWidth": 120,
-        "singleQuote": true,
-        "trailingComma": "none"
-      }
-    ],
     "no-console": "off",
     "complexity": "off",
     "no-return-assign": "off",
     "babel/object-curly-spacing": "off",
-    "babel/semi": "off"
+    "babel/semi": "off",
+    "padded-blocks": ["error", { "classes": "always" }]
   }
 }
