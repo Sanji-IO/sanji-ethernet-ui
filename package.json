@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "angular-mocks": "~1.6.8",
-    "sanji-common-devs-ui": "^7.0.0",
+    "sanji-common-devs-ui": "^8.3.1",
     "sanji-core-ui": "^4.0.0",
     "sanji-openapi-mock": "github:sanji-io/sanji-openapi-mockserver",
     "semantic-release": "^12.2.5",
@@ -44,9 +44,7 @@
   "bugs": {
     "url": "https://github.com/Sanji-IO/sanji-ethernet-ui/issues"
   },
-  "keywords": [
-    "sanji"
-  ],
+  "keywords": ["sanji"],
   "license": "MIT",
   "homepage": "https://github.com/Sanji-IO/sanji-ethernet-ui",
   "peerDependencies": {
