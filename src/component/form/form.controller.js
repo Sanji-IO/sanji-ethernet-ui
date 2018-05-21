@@ -1,5 +1,6 @@
 const $inject = [];
 class EthernetFormController {
+
   constructor(...injects) {
     EthernetFormController.$inject.forEach((item, index) => (this[item] = injects[index]));
   }
@@ -11,6 +12,7 @@ class EthernetFormController {
       }
     });
   }
+
 }
 EthernetFormController.$inject = $inject;
 export default EthernetFormController;
