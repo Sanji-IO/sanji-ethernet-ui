@@ -1,4 +1,4 @@
-import EthernetFormContainerController from './container.controller';
+import EthernetFormContainerController from './ethernet-form-container.controller';
 
 const EthernetFormContainer = {
   bindings: {
