@@ -1,6 +1,6 @@
 import angular from 'angular';
 
-import './form.tpl.html';
+import './sanji-ethernet-form.tpl.html';
 import EthernetFormContainerComponent from './container.component';
 import EthernetFormComponent from './form.component';
 
