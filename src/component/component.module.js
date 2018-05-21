@@ -16,9 +16,8 @@ export const EthernetAction = ($q, ethernetService) => {
 
       if (!options.force && ethernets.length) {
         return $q.when(ethernets).then(() => dispatch({ type: GET_ETHERNETS, payload: ethernets }));
-      } else {
-        return ethernetService.get().then(data => dispatch({ type: GET_ETHERNETS, payload: data }));
       }
+      return ethernetService.get().then(data => dispatch({ type: GET_ETHERNETS, payload: data }));
     };
   };
 
