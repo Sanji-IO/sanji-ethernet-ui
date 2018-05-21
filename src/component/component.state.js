@@ -1,5 +1,5 @@
 //-------------------------------------------------------------------
-// Constants
+// Types
 //-------------------------------------------------------------------
 export const GET_ETHERNETS = 'GET_ETHERNETS';
 export const UPDATE_ETHERNET = 'UPDATE_ETHERNET';
