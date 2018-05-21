@@ -1,4 +1,4 @@
-import EthernetFormController from './form.controller';
+import EthernetFormController from './ethernet-form.controller';
 
 const EthernetFormComponent = {
   bindings: {
