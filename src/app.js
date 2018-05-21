@@ -9,6 +9,7 @@ import { sjEthernet, ethernets } from './component';
 const app = angular.module('webapp', [sjCore, sjEthernet]);
 
 class AppController {
+
   constructor($translate, LANG_KEYS, auth) {
     this.$translate = $translate;
     this.currentLang = $translate.use();
@@ -27,6 +28,7 @@ class AppController {
   logout(event) {
     console.log('logout execute', event);
   }
+
 }
 
 app.config(reduxHelperProvider => {
