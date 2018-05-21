@@ -1,6 +1,6 @@
 import angular from 'angular';
 
-import './info.tpl.html';
+import './sanji-ethernet-info.tpl.html';
 import EthernetInfoContainerComponent from './container.component';
 import EthernetInfoComponent from './info.component';
 
