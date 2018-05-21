@@ -25,22 +25,6 @@ const config = {
   module: {
     rules: [
       { test: /\.js$/, use: 'eslint-loader?fix=true', exclude: /node_modules/, enforce: 'pre' },
-      {
-        test: /\.js?$/,
-        enforce: 'pre',
-        // avoid running prettier on all the files!
-        // use it only on your source code and not on dependencies!
-        exclude: /node_modules/,
-        use: {
-          loader: 'prettier-loader',
-          // force this loader to run first if it's not first in loaders list
-          options: {
-            printWidth: 120,
-            singleQuote: true,
-            trailingComma: 'none'
-          }
-        }
-      },
       { test: /\.js$/, use: 'babel-loader?cacheDirectory', exclude: /node_modules/ },
       {
         test: /\.html$/,
