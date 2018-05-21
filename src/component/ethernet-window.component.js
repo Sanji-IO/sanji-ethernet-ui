@@ -32,4 +32,5 @@ const EthernetWindowComponent = {
   
 }
 };
+
 export default EthernetWindowComponent;
