@@ -1,5 +1,6 @@
 const $inject = ['$scope', '$ngRedux', 'sanjiWindowService', 'ethernetAction'];
 const WINDOW_ID = 'sanji-ethernet-ui';
+
 class EthernetFormContainerController {
 
   constructor(...injects) {
@@ -43,5 +44,7 @@ class EthernetFormContainerController {
   }
 
 }
+
 EthernetFormContainerController.$inject = $inject;
+
 export default EthernetFormContainerController;
