@@ -29,8 +29,8 @@ const EthernetWindowComponent = {
         $event: event
       });
     }
-  
-}
+
+  }
 };
 
 export default EthernetWindowComponent;
