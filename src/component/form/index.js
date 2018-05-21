@@ -1,7 +1,7 @@
 import angular from 'angular';
 import './sanji-ethernet-form.tpl.html';
 import EthernetFormContainer from './ethernet-form.container';
-import EthernetFormComponent from './form.component';
+import EthernetFormComponent from './ethernet-form.component';
 
 const sjEthernetForm = angular
   .module('sanji.ethernet.form', [])
