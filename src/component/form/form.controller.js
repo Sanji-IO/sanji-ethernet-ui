@@ -1,4 +1,5 @@
 const $inject = [];
+
 class EthernetFormController {
 
   constructor(...injects) {
@@ -14,5 +15,7 @@ class EthernetFormController {
   }
 
 }
+
 EthernetFormController.$inject = $inject;
+
 export default EthernetFormController;
