@@ -1,6 +1,6 @@
 import angular from 'angular';
 import './sanji-ethernet-info.tpl.html';
-import EthernetInfoContainer from './container.component';
+import EthernetInfoContainer from './ethernet-info.container';
 import EthernetInfoComponent from './info.component';
 
 const sjEthernetInfo = angular
