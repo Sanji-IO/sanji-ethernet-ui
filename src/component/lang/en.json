@@ -20,7 +20,7 @@
   "ETHERNET_INFO_DNS": "DNS",
   "ETHERNET_NETMASK_ERROR_MSG": "Invalid netmask format!",
   "ETHERNET_FORM_LOGOUT_MSG": "You will be logout!",
-  "ETHERNET_FORM_DHCP_ENABLE": "Enable",
+  "ETHERNET_FORM_DHCP_ENABLE": "DHCP Server Enable",
   "ETHERNET_FORM_DHCP_START_IP": "Start IP",
   "ETHERNET_FORM_DHCP_END_IP": "End IP",
   "ETHERNET_FORM_DHCP_LEASE_TIME": "Lease time",
