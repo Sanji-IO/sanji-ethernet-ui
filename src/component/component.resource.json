@@ -139,14 +139,6 @@
       }
     },
     {
-      "key": "domainNameServers[2]",
-      "type": "input",
-      "optionsTypes": "ip",
-      "templateOptions": {
-        "label": "ETHERNET_FORM_DHCP_SECONDARY_DNS"
-      }
-    },
-    {
       "key": "domainName",
       "type": "input",
       "templateOptions": {
