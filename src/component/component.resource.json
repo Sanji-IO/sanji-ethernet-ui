@@ -10,6 +10,14 @@
   },
   "wanFields": [
     {
+      "key": "networkType",
+      "type": "input",
+      "templateOptions": {
+        "label": "ETHERNET_FORM_NETWORK_TYPE",
+        "disabled": true
+      }
+    },
+    {
       "key": "enableDhcp",
       "type": "radio",
       "defaultValue": false,
@@ -77,6 +85,14 @@
     }
   ],
   "lanFields": [
+    {
+      "key": "networkType",
+      "type": "input",
+      "templateOptions": {
+        "label": "ETHERNET_FORM_NETWORK_TYPE",
+        "disabled": true
+      }
+    },
     {
       "key": "enable",
       "type": "switch",
