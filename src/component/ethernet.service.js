@@ -78,13 +78,29 @@ class EthernetService {
   }
 
   update(data) {
+
     const toPath = this.pathToRegexp.compile(config.put.url);
     const path = undefined !== data.content.id ? toPath({ id: data.content.id }) : toPath();
-    return this.rest
-      .put(path, data.content, data.formOptions.files, this.restConfig)
-      .then(res => {
-        this.logger.success(this.$filter('translate')(this.message.update.success), res.data);
-        return { content: res.data };
+
+    const byProps = (obj, prop) => {
+      if (prop in data.content) {
+        obj[prop] = data.content[prop];
+      }
+      return obj;
+    };
+
+    const validEthernetContent = this.validEthernetProps.reduce(byProps, {});
+    const promises = [this.rest.put(path, validEthernetContent, data.formOptions.files, this.restConfig)];
+
+    if (data.enable && data.content.id) {
+      const validDhcpdContent = this.validDhcpdProps.reduce(byProps, {});
+      promises.push(this.rest.put(`/network/dhcpd/${data.content.id}`, validDhcpdContent,  data.formOptions.files, this.restConfig));
+    }
+
+    return Promise.all(promises)
+      .then(resArr => {
+        this.logger.success(this.$filter('translate')(this.message.update.success), resArr[0].data);
+        return { content: resArr[0].data };
       })
       .catch(err => {
         this.exception.catcher(this.$filter('translate')(this.message.update.error))(err);
