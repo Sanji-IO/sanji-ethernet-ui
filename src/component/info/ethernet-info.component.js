@@ -1,4 +1,4 @@
-import EthernetInfoController from './info.controller';
+import EthernetInfoController from './ethernet-info.controller';
 
 const EthernetInfoComponent = {
   bindings: {
