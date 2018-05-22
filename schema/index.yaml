@@ -330,7 +330,7 @@ externalDocs:
           "id":1,
           "wan":true,
           "name": "eth0",
-          "ip": "localhost",
+          "ip": "192.168.3.1",
           "mac": "FF:FF:FF:FF:FF:FF",
           "netmask": "255.255.255.0",
           "subnet": "192.168.3.0",
