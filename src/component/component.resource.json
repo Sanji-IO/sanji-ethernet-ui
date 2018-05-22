@@ -92,6 +92,26 @@
       }
     },
     {
+      "key": "ip",
+      "type": "input",
+      "optionsTypes": "ip",
+      "templateOptions": {
+        "label": "ETHERNET_FORM_LABEL_IP",
+        "required": true
+      }
+    },
+    {
+      "key": "netmask",
+      "type": "input",
+      "optionsTypes": "ip",
+      "templateOptions": {
+        "label": "ETHERNET_FORM_LABEL_NETMASK",
+        "required": true,
+        "pattern": "^(254|252|248|240|224|192|128)\\.0\\.0\\.0|255\\.(254|252|248|240|224|192|128|0)\\.0\\.0|255\\.255\\.(254|252|248|240|224|192|128|0)\\.0|255\\.255\\.255\\.(254|252|248|240|224|192|128|0)",
+        "patternValidationMessage": "ETHERNET_NETMASK_ERROR_MSG"
+      }
+    },
+    {
       "key": "enable",
       "type": "switch",
       "templateOptions": {
@@ -114,15 +134,6 @@
       "optionsTypes": "ip",
       "templateOptions": {
         "label": "ETHERNET_FORM_DHCP_END_IP",
-        "require": true
-      }
-    },
-    {
-      "key": "netmask",
-      "type": "input",
-      "optionsTypes": "ip",
-      "templateOptions": {
-        "label": "ETHERNET_FORM_LABEL_NETMASK",
         "require": true
       }
     },
