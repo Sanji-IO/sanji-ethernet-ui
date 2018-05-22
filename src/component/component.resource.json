@@ -71,8 +71,7 @@
       "optionsTypes": "ip",
       "templateOptions": {
         "label": "ETHERNET_FORM_LABEL_DNS1"
-      },
-      "hideExpression": "!!model.enableDhcp"
+      }
     },
     {
       "key": "dns[1]",
@@ -80,8 +79,7 @@
       "optionsTypes": "ip",
       "templateOptions": {
         "label": "ETHERNET_FORM_LABEL_DNS2"
-      },
-      "hideExpression": "!!model.enableDhcp"
+      }
     }
   ],
   "lanFields": [
