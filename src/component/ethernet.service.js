@@ -1,7 +1,9 @@
 import { cloneDeep } from 'lodash/fp';
+import YAML from 'js-yaml';
 
 const $inject = ['$q', 'rest', 'exception', 'pathToRegexp', '$filter', 'logger'];
 const config = require('./component.resource.json');
+const schema = YAML.load(require('./../../schema/index.yaml'));
 
 class EthernetService {
 
