@@ -1,4 +1,4 @@
-import EthernetInfoContainerController from './container.controller';
+import EthernetInfoContainerController from './ethernet-info-container.controller';
 
 const EthernetInfoContainer = {
   template: `<sanji-ethernet-info data="$ctrl.data" tab-index="$ctrl.sanjiWindowMgr.tabIndex"></sanji-ethernet-info>`,
