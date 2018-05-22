@@ -40,17 +40,35 @@ class EthernetService {
   }
 
   get() {
-    const toPath = this.pathToRegexp.compile(config.get.url);
-    return this.rest
-      .get(toPath(), this.restConfig)
-      .then(res => {
-        this.cache = cloneDeep(res.data);
-        return this._transform(res.data);
-      })
-      .catch(err => {
-        this.exception.catcher(this.$filter('translate')(this.message.get.error))(err);
-        return this.$q.reject();
-      });
+
+    return Promise.all([
+      this.rest.get('/network/dns', this.restConfig),
+      this.rest.get('/network/ethernets', this.restConfig),
+      this.rest.get('/network/dhcpd', this.restConfig)
+    ])
+    .then(resArr => {
+
+      // https://trello.com/c/huGccHx3/48-ethernet-web
+      // dns from /network/dns API
+      const dnsFromNetworkDns = resArr[0].data.dns;
+
+      const data = cloneDeep(resArr[1].data)
+        .map((row, index) => {
+
+          if (row.wan) {
+            row.dns = dnsFromNetworkDns;
+            return row;
+          }
+          return Object.assign({}, row, resArr[2].data.collection[index]);
+        });
+
+      this.cache = data;
+      return this._transform(data);
+    })
+    .catch(err => {
+      this.exception.catcher(this.$filter('translate')(this.message.get.error))(err);
+      return this.$q.reject();
+    });
   }
 
   update(data) {
