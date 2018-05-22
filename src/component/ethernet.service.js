@@ -24,7 +24,8 @@ class EthernetService {
   }
 
   _transform(data) {
-    return data.map(item => {
+    return data.map(rawItem => {
+      const item = Object.assign({}, rawItem, {networkType: rawItem.wan ? 'WAN' : 'LAN'});
       return {
         content: item,
         formOptions: {},
