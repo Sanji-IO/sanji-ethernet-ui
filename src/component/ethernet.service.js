@@ -23,6 +23,9 @@ class EthernetService {
       headers: { 'mx-api-token': __API_TOKEN__ }
     };
     this.cache;
+
+    this.validEthernetProps = Object.keys(schema.definitions.Ethernet.properties).filter(prop => ! prop.readonly);
+    this.validDhcpdProps = Object.keys(schema.definitions.DHCPServer.properties).filter(prop => ! prop.readonly);
   }
 
   _transform(data) {
