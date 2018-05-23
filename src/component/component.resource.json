@@ -10,6 +10,14 @@
   },
   "wanFields": [
     {
+      "key": "networkType",
+      "type": "input",
+      "templateOptions": {
+        "label": "ETHERNET_FORM_NETWORK_TYPE",
+        "disabled": true
+      }
+    },
+    {
       "key": "enableDhcp",
       "type": "radio",
       "defaultValue": false,
@@ -63,8 +71,7 @@
       "optionsTypes": "ip",
       "templateOptions": {
         "label": "ETHERNET_FORM_LABEL_DNS1"
-      },
-      "hideExpression": "!!model.enableDhcp"
+      }
     },
     {
       "key": "dns[1]",
@@ -72,11 +79,18 @@
       "optionsTypes": "ip",
       "templateOptions": {
         "label": "ETHERNET_FORM_LABEL_DNS2"
-      },
-      "hideExpression": "!!model.enableDhcp"
+      }
     }
   ],
   "lanFields": [
+    {
+      "key": "networkType",
+      "type": "input",
+      "templateOptions": {
+        "label": "ETHERNET_FORM_NETWORK_TYPE",
+        "disabled": true
+      }
+    },
     {
       "key": "ip",
       "type": "input",
@@ -84,8 +98,7 @@
       "templateOptions": {
         "label": "ETHERNET_FORM_LABEL_IP",
         "required": true
-      },
-      "hideExpression": "!!model.enableDhcp"
+      }
     },
     {
       "key": "netmask",
@@ -96,15 +109,65 @@
         "required": true,
         "pattern": "^(254|252|248|240|224|192|128)\\.0\\.0\\.0|255\\.(254|252|248|240|224|192|128|0)\\.0\\.0|255\\.255\\.(254|252|248|240|224|192|128|0)\\.0|255\\.255\\.255\\.(254|252|248|240|224|192|128|0)",
         "patternValidationMessage": "ETHERNET_NETMASK_ERROR_MSG"
-      },
-      "hideExpression": "!!model.enableDhcp"
+      }
     },
     {
-      "key": "dhcp-server",
+      "key": "enable",
+      "type": "switch",
+      "templateOptions": {
+        "label": "ETHERNET_FORM_DHCP_ENABLE",
+        "require": true
+      }
+    },
+    {
+      "key": "startIp",
       "type": "input",
       "optionsTypes": "ip",
       "templateOptions": {
-        "label": "ETHERNET_FORM_LABEL_DHCP_SERVER"
+        "label": "ETHERNET_FORM_DHCP_START_IP",
+        "require": true
+      }
+    },
+    {
+      "key": "endIp",
+      "type": "input",
+      "optionsTypes": "ip",
+      "templateOptions": {
+        "label": "ETHERNET_FORM_DHCP_END_IP",
+        "require": true
+      }
+    },
+    {
+      "key": "leaseTime",
+      "type": "number",
+      "templateOptions": {
+        "label": "ETHERNET_FORM_DHCP_LEASE_TIME",
+        "min": 0,
+        "max": 65535,
+        "require": true
+      }
+    },
+    {
+      "key": "domainNameServers[0]",
+      "type": "input",
+      "optionsTypes": "ip",
+      "templateOptions": {
+        "label": "ETHERNET_FORM_DHCP_PRIMARY_DNS"
+      }
+    },
+    {
+      "key": "domainNameServers[1]",
+      "type": "input",
+      "optionsTypes": "ip",
+      "templateOptions": {
+        "label": "ETHERNET_FORM_DHCP_SECONDARY_DNS"
+      }
+    },
+    {
+      "key": "domainName",
+      "type": "input",
+      "templateOptions": {
+        "label": "ETHERNET_FORM_DHCP_DOMAIN_NAME"
       }
     }
   ]

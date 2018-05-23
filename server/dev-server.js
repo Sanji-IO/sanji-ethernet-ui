@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const config = require('../webpack.dev');
+
 new WebpackDevServer(webpack(config), {
   historyApiFallback: true,
   stats: 'minimal'
@@ -11,4 +12,3 @@ new WebpackDevServer(webpack(config), {
   }
   console.log('Listening at localhost:8080');
 });
-

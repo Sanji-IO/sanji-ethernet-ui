@@ -1,4 +1,4 @@
-import EthernetFormController from './form.controller';
+import EthernetFormController from './ethernet-form.controller';
 
 const EthernetFormComponent = {
   bindings: {
@@ -9,4 +9,5 @@ const EthernetFormComponent = {
   templateUrl: 'sanji-ethernet-form.tpl.html',
   controller: EthernetFormController
 };
+
 export default EthernetFormComponent;

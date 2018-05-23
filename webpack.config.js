@@ -24,6 +24,7 @@ const config = {
   },
   module: {
     rules: [
+      { test: /\.yaml/, use: 'raw-loader', exclude: /node_modules/},
       { test: /\.js$/, use: 'eslint-loader', exclude: /node_modules/, enforce: 'pre' },
       { test: /\.js$/, use: 'babel-loader?cacheDirectory', exclude: /node_modules/ },
       {

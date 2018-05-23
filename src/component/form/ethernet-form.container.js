@@ -1,6 +1,6 @@
-import EthernetFormContainerController from './container.controller';
+import EthernetFormContainerController from './ethernet-form-container.controller';
 
-const EthernetFormContainerComponent = {
+const EthernetFormContainer = {
   bindings: {
     onLogout: '&'
   },
@@ -9,4 +9,4 @@ const EthernetFormContainerComponent = {
               on-submit="$ctrl.onSave($event)"></sanji-ethernet-form>`,
   controller: EthernetFormContainerController
 };
-export default EthernetFormContainerComponent;
+export default EthernetFormContainer;

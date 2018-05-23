@@ -10,6 +10,76 @@ schemes:
 produces:
   - application/json
 paths:
+  /network/dhcpd:
+    get:
+      description: Get Overview of DHCP Server information
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: '#/definitions/DHCPServerCollection'
+          examples:
+            {
+              "application/json": {
+                $ref: '#/externalDocs/x-mocks/DHCPServerCollectionExample'
+              }
+            }
+  /network/dhcpd/{id}:
+    parameters:
+    - name: id
+      in: path
+      type: integer
+      required: true
+
+    get:
+      description: Get a dhcp server configuration
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: '#/definitions/DHCPServer'
+          examples:
+            {
+              "application/json": {
+                $ref: '#/externalDocs/x-mocks/DHCPServerExample'
+              }
+            }
+
+    put:
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DHCPServer'
+      description: Update a dhcp server configuration
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: '#/definitions/DHCPServer'
+          examples:
+            {
+              "application/json": {
+                $ref: '#/externalDocs/x-mocks/DHCPServerExample'
+              }
+            }
+  /network/dns:
+    get:
+      summary: Information of Current DNS settings
+      description: |
+        List all current DNS and DNS source.
+      responses:
+        200:
+          description: DNS
+          schema:
+            $ref: '#/definitions/DNS'
+          examples:
+            {
+              "application/json": {
+                $ref: '#/externalDocs/x-mocks/DNS'
+              }
+            }
   /network/ethernets:
     get:
       summary: Ethernet Interface(s)
@@ -83,6 +153,97 @@ paths:
             }
 
 definitions:
+  DHCPServer:
+    description: DHCP Server configuration
+    type: object
+    required:
+    - name
+    - enable
+    - netmask
+    - startIp
+    - endIp
+    - domainNameServers
+    - domainName
+    - leaseTime
+    properties:
+      avaliable:
+        readOnly: true
+        type: boolean
+        description: |
+          DHCP server is avaliable or not (the interface must be "static IP"
+          and/or worked as a WiFi AP), default should be false.
+      name:
+        description: Name of dhcp server
+        type: string
+        minLength: 1
+        maxLength: 255
+      enable:
+        description: Enable dhcp server
+        type: boolean
+      netmask:
+        description: Netmask of dhcp server
+        type: string
+        minLength: 7
+        maxLength: 15
+      startIp:
+        description: Range IP start
+        type: string
+        minLength: 7
+        maxLength: 15
+      endIp:
+        description: Range IP end
+        type: string
+        minLength: 7
+        maxLength: 15
+      domainNameServers:
+        description: Domain name servers
+        type: array
+        items:
+          type: string
+          minLength: 7
+          maxLength: 15
+      domainName:
+        description: Domain name
+        type: string
+        maxLength: 255
+      leaseTime:
+        description: Lease time of dhcp pool
+        type: integer
+        minimum: 60
+        maximum: 65535
+    example:
+      $ref: '#/externalDocs/x-mocks/DHCPServerExample'
+  DNS:
+    title: DNS
+    required:
+    - enableFixed
+    properties:
+      source:
+        type: string
+        readOnly: true
+        description: |
+          The current dns corresponging source, may be a network interface or
+          `fixed` for fixed DNS (readonly)
+      dns:
+        type: array
+        items:
+          type: string
+          pattern: ^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$
+        readOnly: true
+        description: Current DNS setting(s) (readonly).
+      enableFixed:
+        type: boolean
+        description: |
+          Using fixed DNS (true) or by interface (false), false if not given.
+      fixedDns:
+        type: array
+        items:
+          type: string
+          pattern: ^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$
+        description: |
+          DNS settings if enableFixed is `true`.
+    example:
+          $ref: '#/externalDocs/x-mocks/DNS'
   Ethernet:
     title: Ethernet
     required:
@@ -159,10 +320,35 @@ definitions:
           `true` means that view must be restarted after receiving the response.
     example:
           $ref: '#/externalDocs/x-mocks/Ethernet'
+  DHCPServerCollection:
+    description: Collection of DHCP Servers and overview status
+    type: object
+    readOnly: true
+    properties:
+      status:
+        description: DHCP Server is enable or not
+        type: boolean
+      collection:
+        description: All of dhcp server instance config
+        type: array
+        items:
+          $ref: '#/definitions/DHCPServer'
+    example:
+      $ref: '#/externalDocs/x-mocks/DHCPServerCollectionExample'
 
 externalDocs:
   url: '#'
   x-mocks:
+    DNS:
+      {
+        "enableFixed": false,
+        "fixedDns": [],
+        "source": "eth0",
+        "dns": [
+          "8.8.8.8",
+          "8.8.4.4",
+        ]
+      }
     Ethernet:
       {
         "id":1,
@@ -184,7 +370,7 @@ externalDocs:
           "id":1,
           "wan":true,
           "name": "eth0",
-          "ip": "localhost",
+          "ip": "192.168.3.1",
           "mac": "FF:FF:FF:FF:FF:FF",
           "netmask": "255.255.255.0",
           "subnet": "192.168.3.0",
@@ -210,3 +396,63 @@ externalDocs:
           "restart":true
         }
       ]
+    DHCPServerCollectionExample:
+      {
+        "status": true,
+        "collection": [
+          {
+            "id": 1,
+            "name": "eth0",
+            "available": true,
+            "enable": true,
+            "subnet": "192.168.3.0",
+            "netmask": "255.255.255.0",
+            "startIp": "192.168.3.100",
+            "endIp": "192.168.3.150",
+            "domainNameServers": [
+              "8.8.8.8",
+              "1.1.1.1",
+              "2.2.2.2"
+            ],
+            "domainName": "cloud5566",
+            "leaseTime": "3600",
+            "status": true
+          },
+          {
+            "id": 2,
+            "name": "eth1",
+            "available": true,
+            "enable": true,
+            "subnet": "192.168.3.0",
+            "netmask": "255.255.255.0",
+            "startIp": "192.168.3.100",
+            "endIp": "192.168.3.150",
+            "domainNameServers": [
+              "8.8.8.8",
+              "1.1.1.1",
+              "2.2.2.2"
+            ],
+            "domainName": "cloud5566",
+            "leaseTime": "3600",
+            "status": false
+          }
+        ]
+      }
+    DHCPServerExample:
+      {
+        "id": 1,
+        "name": "eth0",
+        "available": false,
+        "enable": false,
+        "subnet": "192.168.3.0",
+        "netmask": "255.255.255.0",
+        "startIp": "192.168.3.100",
+        "endIp": "192.168.3.150",
+        "domainNameServers": [
+          "8.8.8.8",
+          "1.1.1.1",
+          "2.2.2.2"
+        ],
+        "domainName": "cloud5566",
+        "leaseTime": "3600"
+      }
