@@ -11,6 +11,11 @@ produces:
   - application/json
 paths:
   /network/dhcpd:
+    options:
+      description: Preflight request
+      responses:
+        200:
+          description: success
     get:
       description: Get Overview of DHCP Server information
       responses:
@@ -65,6 +70,11 @@ paths:
               }
             }
   /network/dns:
+    options:
+      description: Preflight request
+      responses:
+        200:
+          description: success
     get:
       summary: Information of Current DNS settings
       description: |
@@ -81,6 +91,11 @@ paths:
               }
             }
   /network/ethernets:
+    options:
+      description: Preflight request
+      responses:
+        200:
+          description: success
     get:
       summary: Ethernet Interface(s)
       description: |
