@@ -24,6 +24,46 @@ paths:
                 $ref: '#/externalDocs/x-mocks/DHCPServerCollectionExample'
               }
             }
+  /network/dhcpd/{id}:
+    parameters:
+    - name: id
+      in: path
+      type: integer
+      required: true
+
+    get:
+      description: Get a dhcp server configuration
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: '#/definitions/DHCPServer'
+          examples:
+            {
+              "application/json": {
+                $ref: '#/externalDocs/x-mocks/DHCPServerExample'
+              }
+            }
+
+    put:
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/DHCPServer'
+      description: Update a dhcp server configuration
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: '#/definitions/DHCPServer'
+          examples:
+            {
+              "application/json": {
+                $ref: '#/externalDocs/x-mocks/DHCPServerExample'
+              }
+            }
   /network/dns:
     get:
       summary: Information of Current DNS settings
