@@ -100,8 +100,9 @@ class EthernetService {
 
     return Promise.all(promises)
       .then(resArr => {
-        this.logger.success(this.$filter('translate')(this.message.update.success), resArr[0].data);
-        return { content: resArr[0].data };
+        const content = Object.assign({}, resArr[0].data, resArr[1].data);
+        this.logger.success(this.$filter('translate')(this.message.update.success), content);
+        return { content };
       })
       .catch(err => {
         this.exception.catcher(this.$filter('translate')(this.message.update.error))(err);
