@@ -100,7 +100,7 @@ class EthernetService {
 
     return Promise.all(promises)
       .then(resArr => {
-        const content = Object.assign({}, resArr[0].data, resArr[1].data);
+        const content = Object.assign({}, dataContent, resArr[0].data, resArr[1].data);
         this.logger.success(this.$filter('translate')(this.message.update.success), content);
         return { content };
       })
