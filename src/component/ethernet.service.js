@@ -92,17 +92,17 @@ class EthernetService {
 
     const validEthernetContent = this.validEthernetProps.reduce(byProps, {});
     const promises = [this.rest.put(path, validEthernetContent, data.formOptions.files, this.restConfig)];
+    const isLan = (! dataContent.wan);
 
-    if (dataContent.enable && dataContent.id) {
+    if (isLan && dataContent.enable && dataContent.id) {
       const validDhcpdContent = this.validDhcpdProps.reduce(byProps, {});
       promises.push(this.rest.put(`/network/dhcpd/${dataContent.id}`, validDhcpdContent,  data.formOptions.files, this.restConfig));
     }
 
     return Promise.all(promises)
-      .then(resArr => {
-        const content = Object.assign({}, dataContent, resArr[0].data, resArr[1].data);
-        this.logger.success(this.$filter('translate')(this.message.update.success), content);
-        return { content };
+      .then(() => {
+        this.logger.success(this.$filter('translate')(this.message.update.success), dataContent);
+        return { content: dataContent };
       })
       .catch(err => {
         this.exception.catcher(this.$filter('translate')(this.message.update.error))(err);
