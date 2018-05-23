@@ -80,11 +80,12 @@ class EthernetService {
   update(data) {
 
     const toPath = this.pathToRegexp.compile(config.put.url);
-    const path = undefined !== data.content.id ? toPath({ id: data.content.id }) : toPath();
+    const dataContent = data.content;
+    const path = undefined !== dataContent.id ? toPath({ id: dataContent.id }) : toPath();
 
     const byProps = (obj, prop) => {
-      if (prop in data.content) {
-        obj[prop] = data.content[prop];
+      if (prop in dataContent) {
+        obj[prop] = dataContent[prop];
       }
       return obj;
     };
@@ -92,9 +93,9 @@ class EthernetService {
     const validEthernetContent = this.validEthernetProps.reduce(byProps, {});
     const promises = [this.rest.put(path, validEthernetContent, data.formOptions.files, this.restConfig)];
 
-    if (data.content.enable && data.content.id) {
+    if (dataContent.enable && dataContent.id) {
       const validDhcpdContent = this.validDhcpdProps.reduce(byProps, {});
-      promises.push(this.rest.put(`/network/dhcpd/${data.content.id}`, validDhcpdContent,  data.formOptions.files, this.restConfig));
+      promises.push(this.rest.put(`/network/dhcpd/${dataContent.id}`, validDhcpdContent,  data.formOptions.files, this.restConfig));
     }
 
     return Promise.all(promises)
