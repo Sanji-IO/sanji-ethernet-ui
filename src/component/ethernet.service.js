@@ -92,7 +92,7 @@ class EthernetService {
     const validEthernetContent = this.validEthernetProps.reduce(byProps, {});
     const promises = [this.rest.put(path, validEthernetContent, data.formOptions.files, this.restConfig)];
 
-    if (data.enable && data.content.id) {
+    if (data.content.enable && data.content.id) {
       const validDhcpdContent = this.validDhcpdProps.reduce(byProps, {});
       promises.push(this.rest.put(`/network/dhcpd/${data.content.id}`, validDhcpdContent,  data.formOptions.files, this.restConfig));
     }
