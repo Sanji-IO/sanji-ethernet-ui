@@ -1,7 +1,6 @@
 <script type="text/ng-template" id="sanji-ethernet-form.tpl.html">
   <md-tabs md-dynamic-height md-border-bottom md-selected="$ctrl.tabIndex" class="md-no-transition">
-    <md-tab ng-repeat="tab in $ctrl.tabs track by $index"
-    label="{{::tab.content.name}}">
+    <md-tab ng-repeat="tab in $ctrl.tabs track by $index" label="{{::tab.content.name}}">
       <form ng-if="$ctrl.tabIndex === $index" ng-submit="$ctrl.save(tab)"
         role="form" layout="column" layout-padding novalidate>
         <formly-form model="tab.content" options="tab.formOptions" fields="tab.fields" form="tabform">
