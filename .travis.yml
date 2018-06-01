@@ -25,7 +25,7 @@ before_script: greenkeeper-lockfile-update
 after_script: greenkeeper-lockfile-upload
 script:
   - yarn build
-after_success: 
+after_success:
   - yarn travis-deploy-once "yarn semantic-release"
 branches:
   except:
