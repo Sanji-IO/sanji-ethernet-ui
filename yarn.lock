@@ -10105,7 +10105,7 @@ svgo@^0.7.0:
 
 swagger-express-middleware@sanji-io/swagger-express-middleware:
   version "1.0.0-alpha.12"
-  resolved "https://codeload.github.com/sanji-io/swagger-express-middleware/tar.gz/beab54ffb40468511ef0c2997379c2b89d96b1ef"
+  resolved "https://codeload.github.com/sanji-io/swagger-express-middleware/tar.gz/1681abe878bfc2c34263e5e9f875010d0c5a118b"
   dependencies:
     body-parser "^1.13.3"
     cookie-parser "^1.3.5"
