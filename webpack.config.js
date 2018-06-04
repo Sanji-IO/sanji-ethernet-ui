@@ -39,8 +39,8 @@ const config = {
       'process.env': {
         NODE_ENV: JSON.stringify(NODE_ENV || 'development')
       },
-      __BASE_PATH__: JSON.stringify(BASE_PATH || 'http://localhost:8000'),
-      __API_TOKEN__: JSON.stringify(API_TOKEN || '')
+      __BASE_PATH__: JSON.stringify(BASE_PATH || 'http://localhost:8000/api/v1'),
+      __API_TOKEN__: JSON.stringify(API_TOKEN || '12345678')
     })
   ]
 };
