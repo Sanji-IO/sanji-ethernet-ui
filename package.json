@@ -30,11 +30,11 @@
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
+    "@thingspro/oapi-server": "^1.1.1",
     "angular-mocks": "~1.6.8",
     "js-yaml": "^3.11.0",
     "sanji-common-devs-ui": "^8.3.1",
     "sanji-core-ui": "^4.0.0",
-    "sanji-openapi-mock": "github:sanji-io/sanji-openapi-mockserver",
     "semantic-release": "^12.2.5",
     "travis-deploy-once": "^4.3.3"
   },
